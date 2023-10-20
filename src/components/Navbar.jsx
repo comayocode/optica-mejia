@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import '../stylesheets/Navbar.css';
 
-import logo from '../assets/logo.svg';
-import close from '../assets/Close.svg';
-import menu from '../assets/Menu.svg';
-// const imgs = require.context('');
+import { logo, close, menu } from '../assets';
 import { navLinks, socialMedia } from '../constants';
 
 const Navbar = () => {

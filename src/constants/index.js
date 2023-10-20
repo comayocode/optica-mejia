@@ -1,15 +1,7 @@
-import gallery01 from '../assets/Gallery01.png';
-import gallery02 from '../assets/Gallery02.png';
-import gallery03 from '../assets/Gallery03.png';
-import gallery04 from '../assets/Gallery04.png';
-import gallery05 from '../assets/Gallery05.png';
-import aboutImg from '../assets/About.png';
-import heroTextLine from '../assets/HeroTextLine.png';
-import heroImg from '../assets/Hero.png';
-import facebook from '../assets/Facebook.png';
-import youtube from '../assets/Youtube.png';
-import whatsapp from '../assets/Whatsapp.png';
-import instagram from '../assets/Instagram.png';
+import {
+  gallery01, gallery02, gallery03, gallery04, gallery05, aboutImg,
+  heroTextLine, heroImg, facebook, youtube, whatsapp, instagram
+} from '../assets';
 
 export const hero = {
   img: heroImg,
