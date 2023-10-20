@@ -1,0 +1,162 @@
+.main-menu {
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+  padding: 0 10px;
+}
+
+/* --- LOGO --- */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.main-menu__logo {
+  width: 64;
+  height: 20px;
+}
+
+.main-menu__logo-text {
+  color: #212121;
+  font-size: 17px;
+  font-weight: 500;
+  margin-left: 8px;
+  display: none;
+}
+
+/* --- MENÚ DE NAVEGACIÓN GENERAL --- */
+.main-menu__list {
+  list-style: none;
+  display: flex;
+}
+
+.main-menu__list--mobile {
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-menu__list--mobile>li {
+  margin-bottom: 10px;
+}
+
+.main-menu__item>a {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--btn-color-secondary);
+  font-weight: 500;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* --- MENÚ DE NAVEGACIÓN MOBILE --- */
+
+.mobile-menu {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu__img {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  z-index: 99;
+}
+
+.mobile-menu__card {
+  background-color: var(--bg-primary);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.main-menu__item--mobile>a {
+  font-size: 2rem;
+}
+
+.social-media {
+  display: none;
+}
+
+@media (min-width: 321px) {
+
+  .main-menu__logo-text {
+    display: block;
+  }
+
+}
+
+@media (min-width: 751px) {
+
+  .main-menu {
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1.125rem 0 1.875rem 1.25rem;
+    justify-content: space-between;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+
+  /* --- LOGO --- */
+
+  .main-menu__logo {
+    height: 22px;
+  }
+
+  .main-menu__logo-text {
+    font-size: 20px;
+  }
+
+  /* --- MENÚ DE NAVEGACIÓN --- */
+
+  .main-menu__list.hidden {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-menu__list--desktop {
+    justify-content: end;
+  }
+
+  .main-menu__item>a {
+    font-size: 1.4rem;
+  }
+
+  .main-menu__item--margin-bottom-0{
+    margin-bottom: 0;
+  }
+
+  .main-menu__item--margin-bottom-10{
+    margin-bottom: 10px;
+  }
+
+  .main-menu__item--margin-right-0 {
+  margin-right: 0;
+}
+
+  .main-menu__item--margin-right-10 {
+    margin-right: 10px;
+  }
+
+  /* --- ICONOS REDES SOCIALES --- */
+
+  .social-media__link {
+    cursor: pointer;
+  }
+
+  .social-media {
+    display: flex;
+  }
+
+  .social-media__img {
+    height: 25px;
+  }
+
+}
