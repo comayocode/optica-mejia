@@ -1,0 +1,138 @@
+/* --- HERO IMG --- */
+#home {
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.red-space {
+  width: 100vw;
+  height: 270px;
+  background-color: var(--btn-color-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-img {
+  width: 240px;
+  height: 190px;
+}
+
+/* --- TEXTO DEL HERO --- */
+
+.hero-info{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px 48px;
+  width: 320px;
+}
+
+.hero-info__title {
+  width: 223px;
+  text-align: left;
+  color: var(--tittle-color);
+  font-size: var(--title-size-320);
+}
+
+.hero-info__line-decoration {
+  max-width: 213px;
+}
+
+.hero-info__description {
+  color: var(--text-gray);
+  font-size: var(--paragraph-size-320);
+  padding: 20px 0 10px;
+}
+
+.hero-info__btn {
+  width: 175px;
+  height: 35px;
+  border: none;
+  background-color: var(--btn-color-primary);
+  color: var(--text-white);
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  #home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .red-space {
+    width: 400px;
+    height: 340px;
+  }
+
+  .hero-info {
+    width: 360px;
+  }
+
+  .hero-info__title {
+    font-size: 30px;
+    width: 280px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #home {
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  .red-space {
+    width: 400px;
+    height: 100vh;
+  }
+
+  .hero-info {
+    width: 345px;
+  }
+
+  .hero-info__description {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .red-space {
+    width: 550px;
+  }
+
+  .hero-img {
+    width: 350px;
+    object-fit: cover;
+    height: 320px;
+  }
+
+  .hero-info {
+    width: 410px;
+  }
+
+  .hero-info__title {
+    font-size: 30px;
+    width: 280px;
+  }
+
+  .hero-info__line-decoration {
+    max-width: 90%;
+  }
+
+  .hero-info__description {
+    font-size: 18px;
+  }
+
+  .hero-info__btn {
+    width: 200px;
+    height: 42px;
+  }
+}
