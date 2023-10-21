@@ -5,11 +5,14 @@ export const hero = {
   description: "Optica Mejía es una clínica de atención médica profesional que se especializa en el examen, diagnóstico, tratamiento de problemas de visión y enfermedades oculares."
 }
 
-export const about = {
-  img: aboutImg,
-  text1: "Somos una empresa con más de 20 años de experiencia en el mercado de la oftalmología dando lo mejor de nosotros para ofrecerte la mejor y la mejor calidad, tanto de atención al cliente como en nuestro catálogo de productos.",
-  text2: "Queremos generar satisfacción a nuestros clientes, que nos recomienden no sólo porque encuentran la solución a sus problemas en nosotros, sino porque entragamos experiencias superiores, ofreciendo lo mejor de nosotros como empresa."
-}
+export const about = [
+  {
+    id: 'about',
+    img: aboutImg,
+    text1: "Somos una empresa con más de 20 años de experiencia en el mercado de la oftalmología dando lo mejor de nosotros para ofrecerte la mejor y la mejor calidad, tanto de atención al cliente como en nuestro catálogo de productos.",
+    text2: "Queremos generar satisfacción a nuestros clientes, que nos recomienden no sólo porque encuentran la solución a sus problemas en nosotros, sino porque entragamos experiencias superiores, ofreciendo lo mejor de nosotros como empresa."
+  },
+]
 
 export const products = [
   {
