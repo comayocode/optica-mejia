@@ -1,12 +1,7 @@
-import {
-  gallery01, gallery02, gallery03, gallery04, gallery05, aboutImg,
-  heroTextLine, heroImg, facebook, youtube, whatsapp, instagram
-} from '../assets';
+import { gallery01, gallery02, gallery03, gallery04, gallery05, aboutImg, facebook, youtube, whatsapp, instagram } from '../assets';
 
 export const hero = {
-  img: heroImg,
   tittle: "Profesionales de confianza para el cuidado de tus ojos",
-  decoration: heroTextLine,
   description: "Optica Mejía es una clínica de atención médica profesional que se especializa en el examen, diagnóstico, tratamiento de problemas de visión y enfermedades oculares."
 }
 
