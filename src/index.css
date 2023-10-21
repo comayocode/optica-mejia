@@ -8,8 +8,17 @@
   --btn-color-primary: #5E4731;
   --btn-color-secondary: #4C292F;
 
-  --title-size: 24px;
-  --paragraph-size: 14px;
+  --title-size-1366: 30px;
+  --paragraph-size-1366: 18px;
+
+  --title-size-1024: 30px;
+  --paragraph-size-1024: 17px;
+
+  --title-size-768: 30px;
+  --paragraph-size-768: 16px;
+
+  --title-size-320: 25px;
+  --paragraph-size-320: 16px;
 }
 
 * {
