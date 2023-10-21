@@ -3,8 +3,12 @@
   flex-direction: row;
 }
 
-@media (max-width: 751px) {
+@media (min-width: 768px) {
   .App {
     flex-direction: column;
+  }
+
+  .body-components {
+    margin-left: 250px;
   }
 }
