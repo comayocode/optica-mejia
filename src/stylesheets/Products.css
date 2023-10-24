@@ -1,0 +1,14 @@
+.product-item {
+  width: 75vw;
+  max-width: 240px;
+  min-height: 360px;
+  margin: auto;
+}
+
+.product-item__img {
+  width: 100%;
+}
+
+.product-item-1 {
+  clip-path: inset(20% 0 );
+}
