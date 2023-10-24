@@ -3,7 +3,7 @@ import '../stylesheets/About.css';
 
 const About = () => (
   <section id='about' className='about'>
-    <h2 className='about__title'>Sobre Nosotros</h2>
+    <h2 className='section-title'>Sobre Nosotros</h2>
     {about.map((value) => (
       <div key={value.id} className='about-content'>
         <div className='img-container'>

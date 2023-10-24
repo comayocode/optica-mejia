@@ -43,10 +43,34 @@ h1, h2 {
   text-align: center;
 }
 
+.section-title {
+  font-size: var(--title-size-320);
+  padding-bottom: 20px;
+}
+
 .hidden {
   display: none;
 }
 
 .flex {
   display: flex;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: var(--title-size-768);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: var(--title-size-1024);
+  }
+}
+
+@media (min-width: 1200px) {
+  .section-title {
+    font-size: var(--title-size-1366);
+    padding-bottom: 50px;
+  }
 }
