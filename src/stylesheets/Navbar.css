@@ -4,6 +4,7 @@
   height: 45px;
   padding: 0 10px;
   position: fixed;
+  z-index: 99;
   width: 100%;
   background-color: var(--bg-primary);
 }

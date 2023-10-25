@@ -3,6 +3,10 @@
   flex-direction: row;
 }
 
+.body-components {
+  z-index: 9;
+}
+
 @media (min-width: 768px) {
   .App {
     flex-direction: column;

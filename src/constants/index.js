@@ -1,4 +1,4 @@
-import { gallery01, gallery02, gallery03, gallery04, gallery05, aboutImg, facebook, youtube, whatsapp, instagram } from '../assets';
+import { gallery01, gallery02, gallery03, gallery04, gallery05, aboutImg, testimonial01, facebook, youtube, whatsapp, instagram } from '../assets';
 
 export const hero = {
   tittle: "Profesionales de confianza para el cuidado de tus ojos",
@@ -34,6 +34,39 @@ export const products = [
   {
     id: "producto-05",
     img: gallery05
+  },
+]
+
+export const testimonials = [
+  {
+    id: "testimonial-01",
+    img: testimonial01,
+    testimonial: "Excelente calidad con las gafas formuladas, ahora veo mucho mejor.",
+  },
+  {
+    id: "testimonial-02",
+    img: testimonial01,
+    testimonial: "Excelente calidad con las gafas formuladas, ahora veo mucho mejor.",
+  },
+  {
+    id: "testimonial-03",
+    img: testimonial01,
+    testimonial: "Excelente calidad con las gafas formuladas, ahora veo mucho mejor.",
+  },
+  {
+    id: "testimonial-04",
+    img: testimonial01,
+    testimonial: "Excelente calidad con las gafas formuladas, ahora veo mucho mejor.",
+  },
+  {
+    id: "testimonial-05",
+    img: testimonial01,
+    testimonial: "Excelente calidad con las gafas formuladas, ahora veo mucho mejor.",
+  },
+  {
+    id: "testimonial-06",
+    img: testimonial01,
+    testimonial: "Excelente calidad con las gafas formuladas, ahora veo mucho mejor.",
   },
 ]
 
