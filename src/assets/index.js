@@ -12,6 +12,7 @@ import heroTextLine from '../assets/HeroTextLine.png';
 import instagram from '../assets/Instagram.png';
 import login from '../assets/Login.png';
 import logo from '../assets/Logo.svg';
+import mapImg from '../assets/map.png';
 import menu from '../assets/Menu.svg';
 import sendButton from '../assets/SendButton.png';
 import testimonial01 from '../assets/Testimonial01.png';
@@ -33,6 +34,7 @@ export {
   instagram,
   login,
   logo,
+  mapImg,
   menu,
   sendButton,
   testimonial01,

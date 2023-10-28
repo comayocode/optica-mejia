@@ -70,6 +70,29 @@ export const testimonials = [
   },
 ]
 
+export const contact = [
+  {
+    id: "nombre",
+    text: "Nombre:",
+    placeholder: "Ingresa tus nombres"
+  },
+  {
+    id: "apellido",
+    text: "Apellido:",
+    placeholder: "Ingresa tus apellidos"
+  },
+  {
+    id: "correo",
+    text: "Correo:",
+    placeholder: "Ingresa tu correo electrónico"
+  },
+  {
+    id: "mensaje",
+    text: "Mensaje:",
+    placeholder: "Ingresa tu consulta"
+  },
+]
+
 export const navLinks = [
   {
     id: "inicio",
