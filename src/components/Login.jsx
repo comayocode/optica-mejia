@@ -1,11 +1,14 @@
 import '../stylesheets/Login.css';
 import { Logo, PrimaryButton } from './index';
+import { Link } from 'react-router-dom';
 
 function Login() {
   return (
     <div className='Login'>
       <header className='login-header'>
-        <Logo />
+        <Link to='/' className='login-header__link'>
+          <Logo />
+        </Link>
       </header>
       <div className='content-section--login'>
         <form action='#' className='login-form'>
@@ -20,7 +23,7 @@ function Login() {
             </div>
           </div>
           <div className='btn-wrap'>
-          <PrimaryButton
+            <PrimaryButton
               text='Ingresar'
               link='dashboard'
               componentStyle='primary-btn--login'

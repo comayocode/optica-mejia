@@ -5,6 +5,7 @@ import { close, menu, login } from '../assets';
 import { navLinks, socialMedia } from '../constants';
 import { PrimaryButton } from './index';
 import { Logo } from './index'
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -12,7 +13,9 @@ const Navbar = () => {
 
   return (
     <nav className='main-menu'>
-      <Logo />
+      <a href='#home' className='nav-logo'>
+          <Logo />
+      </a>
       <ul className='main-menu__list hidden'>
         {navLinks.map((nav, index) => (
           <li

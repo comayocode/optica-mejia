@@ -95,23 +95,23 @@ export const contact = [
 
 export const navLinks = [
   {
-    id: "inicio",
+    id: "home",
     title: "Inicio"
   },
   {
-    id: "nosotros",
+    id: "about",
     title: "Sobre nosotros"
   },
   {
-    id: "productos",
+    id: "products",
     title: "Productos"
   },
   {
-    id: "testimonios",
+    id: "testimonials",
     title: "Testimonios"
   },
   {
-    id: "contacto",
+    id: "contact",
     title: "Contacto"
   },
 ]

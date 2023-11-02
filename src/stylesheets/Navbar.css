@@ -9,6 +9,10 @@
   background-color: var(--bg-primary);
 }
 
+.nav-logo {
+  text-decoration: none;
+}
+
 /* --- BTN LOGIN --- */
 .primary-btn--login-desktop {
   display: none;
