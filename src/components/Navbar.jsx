@@ -26,6 +26,13 @@ const Navbar = () => {
             <a href={`#${nav.id}`}>{nav.title}</a>
           </li>
         ))}
+        <PrimaryButton
+            text='Ingresar'
+            link='login'
+            icon={login}
+            componentStyle='primary-btn--login-desktop'
+            isTargetBlank={false}
+          />
       </ul>
 
       <div className='social-media'>

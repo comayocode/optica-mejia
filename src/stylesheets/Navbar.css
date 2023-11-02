@@ -10,6 +10,10 @@
 }
 
 /* --- BTN LOGIN --- */
+.primary-btn--login-desktop {
+  display: none;
+}
+
 .primary-btn--navbar-mobile {
   margin-top: 40px;
   font-size: calc(var(--paragraph-size-320) * 1.2) !important;
@@ -126,6 +130,20 @@
 
   .main-menu__item--margin-right-10 {
     margin-right: 10px;
+  }
+
+
+  /* --- BTN LOGIN --- */
+  .primary-btn--login-desktop {
+    width: 130px !important;
+    display: flex;
+    margin-top: 20px;
+    /* font-size: 15px !important; */
+  }
+
+  .primary-btn--login-desktop > img {
+    display: inline-block;
+    margin-right: 5px;
   }
 
   /* --- ICONOS REDES SOCIALES --- */
