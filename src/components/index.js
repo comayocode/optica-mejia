@@ -5,6 +5,8 @@ import Products from "./Products";
 import Testimonials from "./Testimonials";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import PrimaryButton from "./PrimaryButton";
+import Login from "./Login";
 
 export {
   Navbar,
@@ -14,4 +16,6 @@ export {
   Testimonials,
   Contact,
   Footer,
+  PrimaryButton,
+  Login,
 }

@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import '../stylesheets/Navbar.css';
 
-import { logo, close, menu } from '../assets';
+import '../stylesheets/Navbar.css';
+import { logo, close, menu, login } from '../assets';
 import { navLinks, socialMedia } from '../constants';
+import { PrimaryButton } from './index';
+
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -13,6 +15,7 @@ const Navbar = () => {
         <img src={logo} alt='Logo optica mejía' className='main-menu__logo' />
         <p className='main-menu__logo-text'>Óptica Mejía</p>
       </div>
+      {/* <PrimaryButton text='Ingresar' link='/login' icon={login} componentStyle='navBarStyle' /> */}
       <ul className='main-menu__list hidden'>
         {navLinks.map((nav, index) => (
           <li
@@ -71,6 +74,13 @@ const Navbar = () => {
                 <a href={`#${nav.id}`}>{nav.title}</a>
               </li>
             ))}
+            <PrimaryButton
+              text='Ingresar'
+              link='login'
+              icon={login}
+              componentStyle='primary-btn--navbar-mobile'
+              isTargetBlank={false}
+            />
           </ul>
         </div>
       </div>

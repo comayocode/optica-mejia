@@ -28,6 +28,22 @@
   display: none;
 }
 
+/* --- BTN LOGIN --- */
+.primary-btn--navbar-mobile {
+  margin-top: 40px;
+  font-size: calc(var(--paragraph-size-320) * 1.2) !important;
+  height: 40px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.primary-btn--navbar-mobile > img {
+  display: inline-block;
+  width: 13px;
+  margin-right: 10px;
+}
+
 /* --- MENÚ DE NAVEGACIÓN GENERAL --- */
 .main-menu__list {
   list-style: none;

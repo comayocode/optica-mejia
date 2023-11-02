@@ -1,3 +1,4 @@
+import { PrimaryButton } from './index';
 import { testimonials } from '../constants';
 import '../stylesheets/Testimonials.css';
 
@@ -17,9 +18,11 @@ const Testimonials = () => {
           </div>
         ))}
       </div>
-      <button className='testimonials__btn' href='#'>
-        Contacta con nosotros
-      </button>
+      <PrimaryButton
+        componentStyle='primary-btn--testimonials'
+        text='Contacta con nosotros'
+        link='https://www.whatsapp.com/'
+      />
     </section>
   );
 };
