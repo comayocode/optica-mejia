@@ -1,9 +1,10 @@
 import { useState } from 'react';
 
 import '../stylesheets/Navbar.css';
-import { logo, close, menu, login } from '../assets';
+import { close, menu, login } from '../assets';
 import { navLinks, socialMedia } from '../constants';
 import { PrimaryButton } from './index';
+import { Logo } from './index'
 
 
 const Navbar = () => {
@@ -11,11 +12,7 @@ const Navbar = () => {
 
   return (
     <nav className='main-menu'>
-      <div className='logo-container'>
-        <img src={logo} alt='Logo optica mejía' className='main-menu__logo' />
-        <p className='main-menu__logo-text'>Óptica Mejía</p>
-      </div>
-      {/* <PrimaryButton text='Ingresar' link='/login' icon={login} componentStyle='navBarStyle' /> */}
+      <Logo />
       <ul className='main-menu__list hidden'>
         {navLinks.map((nav, index) => (
           <li

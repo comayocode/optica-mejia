@@ -1,0 +1,33 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.main-menu__logo {
+  width: 64;
+  height: 20px;
+}
+
+.main-menu__logo-text {
+  color: #212121;
+  font-size: 17px;
+  font-weight: 500;
+  margin-left: 8px;
+  display: none;
+}
+
+@media (min-width: 321px) {
+  .main-menu__logo-text {
+    display: block;
+  }
+}
+
+@media (min-width: 768) {
+  .main-menu__logo {
+    height: 22px;
+  }
+
+  .main-menu__logo-text {
+    font-size: 20px;
+  }
+}

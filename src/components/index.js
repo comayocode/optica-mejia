@@ -7,6 +7,7 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 import PrimaryButton from "./PrimaryButton";
 import Login from "./Login";
+import Logo from "./Logo";
 
 export {
   Navbar,
@@ -18,4 +19,5 @@ export {
   Footer,
   PrimaryButton,
   Login,
+  Logo,
 }

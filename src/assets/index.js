@@ -18,6 +18,7 @@ import sendButton from '../assets/SendButton.png';
 import testimonial01 from '../assets/Testimonial01.png';
 import whatsapp from '../assets/Whatsapp.png';
 import youtube from '../assets/Youtube.png';
+import fondoLogin from '../assets/fondo-login.jpg'
 
 export {
   aboutImg,
@@ -40,4 +41,5 @@ export {
   testimonial01,
   whatsapp,
   youtube,
+  fondoLogin,
 }
