@@ -8,6 +8,11 @@ import Footer from "./Footer";
 import PrimaryButton from "./PrimaryButton";
 import Login from "./Login";
 import Logo from "./Logo";
+import ListaPacientes from "./ListaPacientes";
+import NavBarAdmin from "./NavBarAdmin";
+import Admin from "./Admin";
+import MedicalHistory from "./MedicalHistory";
+import Billing from './Billing'
 
 export {
   Navbar,
@@ -20,4 +25,9 @@ export {
   PrimaryButton,
   Login,
   Logo,
+  ListaPacientes,
+  NavBarAdmin,
+  Admin,
+  MedicalHistory,
+  Billing,
 }

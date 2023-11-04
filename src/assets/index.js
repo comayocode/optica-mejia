@@ -19,6 +19,7 @@ import testimonial01 from '../assets/Testimonial01.png';
 import whatsapp from '../assets/Whatsapp.png';
 import youtube from '../assets/Youtube.png';
 import fondoLogin from '../assets/fondo-login.jpg'
+import picProfile from '../assets/pic-profile.png'
 
 export {
   aboutImg,
@@ -42,4 +43,5 @@ export {
   whatsapp,
   youtube,
   fondoLogin,
+  picProfile,
 }

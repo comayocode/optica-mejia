@@ -4,9 +4,7 @@ import '../stylesheets/Navbar.css';
 import { close, menu, login } from '../assets';
 import { navLinks, socialMedia } from '../constants';
 import { PrimaryButton } from './index';
-import { Logo } from './index'
-import { Link } from 'react-router-dom';
-
+import { Logo } from './index';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -14,7 +12,7 @@ const Navbar = () => {
   return (
     <nav className='main-menu'>
       <a href='#home' className='nav-logo'>
-          <Logo />
+        <Logo />
       </a>
       <ul className='main-menu__list hidden'>
         {navLinks.map((nav, index) => (
@@ -30,12 +28,12 @@ const Navbar = () => {
           </li>
         ))}
         <PrimaryButton
-            text='Ingresar'
-            link='login'
-            icon={login}
-            componentStyle='primary-btn--login-desktop'
-            isTargetBlank={false}
-          />
+          text='Ingresar'
+          link='login'
+          icon={login}
+          componentStyle='primary-btn--login-desktop'
+          isTargetBlank={false}
+        />
       </ul>
 
       <div className='social-media'>

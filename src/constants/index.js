@@ -1,4 +1,4 @@
-import { gallery01, gallery02, gallery03, gallery04, gallery05, aboutImg, testimonial01, facebook, youtube, whatsapp, instagram } from '../assets';
+import { gallery01, gallery02, gallery03, gallery04, gallery05, aboutImg, testimonial01, facebook, youtube, whatsapp, instagram, picProfile } from '../assets';
 
 export const hero = {
   tittle: "Profesionales de confianza para el cuidado de tus ojos",
@@ -136,5 +136,29 @@ export const socialMedia = [
     id: "whatsapp",
     icon: whatsapp,
     link: "https://www.whatsapp.com/"
+  }
+]
+
+export const adminNavLinks = [
+  {
+    id: "patients",
+    title: "Pacientes"
+  },
+  {
+    id: "medical-history",
+    title: "Historial Clínico"
+  },
+  {
+    id: "billing",
+    title: "Facturación"
+  },
+]
+
+export const user = [
+  {
+    id: 1,
+    rol: "Admin",
+    name: 'Pedro Mora',
+    img: picProfile
   }
 ]
