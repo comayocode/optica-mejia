@@ -12,7 +12,7 @@ function Login() {
       </header>
       <div className='content-section--login'>
         <form action='#' className='login-form'>
-          <div className='inputs-container'>
+          <div className='inputs-login-container'>
             <div className='input-box'>
               <span className='input-box__text--login'>Correo:</span>
               <input className='input-box__input--login' type='text' />
