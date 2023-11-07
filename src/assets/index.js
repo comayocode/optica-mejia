@@ -20,6 +20,11 @@ import whatsapp from '../assets/Whatsapp.png';
 import youtube from '../assets/Youtube.png';
 import fondoLogin from '../assets/fondo-login.jpg'
 import picProfile from '../assets/pic-profile.png'
+import search from '../assets/search.svg'
+import firstPage from '../assets/first-page.svg'
+import prevPage from '../assets/prev-page.svg'
+import nextPage from '../assets/next-page.svg'
+import lastPage from '../assets/last-page.svg'
 
 export {
   aboutImg,
@@ -44,4 +49,9 @@ export {
   youtube,
   fondoLogin,
   picProfile,
+  search,
+  firstPage,
+  prevPage,
+  nextPage,
+  lastPage,
 }

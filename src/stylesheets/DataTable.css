@@ -1,0 +1,110 @@
+.DataTable {
+  max-width: 100%;
+  /* height: 75%; */
+  background-color: var(--bg-secondary);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search-container {
+  display: flex;
+  justify-content: end;
+  margin: 20px;
+}
+
+.search-input {
+  width: 200px;
+  height: 30px;
+  background-color: var(--bg-secondary);
+  border: none;
+  border-bottom: 2px solid var(--btn-color-primary);
+  font-size: 17px;
+  padding: 7px;
+}
+
+
+.search-img {
+  padding-left: 10px;
+}
+
+.table-container {
+  overflow-x: auto;
+  min-height: 436px;
+}
+
+.table-spacing {
+  margin: 0 20px;
+  width: 1200px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+thead {
+  background-color: #bb7f30;
+  color: #111;
+  font-size: 20px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.pagination__buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 400px;
+  margin: 15px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 30px;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  border-top: 1px solid #333;
+  border-left: 1px solid #333;
+}
+
+.pagination__buttons>button {
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid #333;
+  border-right: 1px solid #333;
+}
+
+.pagination__buttons>button:hover {
+  background-color: var(--testimonial-card);
+}
+
+.pagination__first-page>img,
+.pagination__prev-page>img {
+  padding-right: 5px;
+}
+
+.pagination__last-page>img,
+.pagination__next-page>img {
+  padding-left: 5px;
+}
