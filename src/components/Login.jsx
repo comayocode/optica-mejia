@@ -25,7 +25,7 @@ function Login() {
           <div className='btn-wrap'>
             <PrimaryButton
               text='Ingresar'
-              link='/admin'
+              link='/admin/patients'
               componentStyle='primary-btn--login'
               isTargetBlank={false}
             />
