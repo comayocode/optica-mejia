@@ -25,6 +25,8 @@ import firstPage from '../assets/first-page.svg'
 import prevPage from '../assets/prev-page.svg'
 import nextPage from '../assets/next-page.svg'
 import lastPage from '../assets/last-page.svg'
+import editBtn from '../assets/Edit.svg';
+import deleteBtn from '../assets/Delete.svg';
 
 export {
   aboutImg,
@@ -54,4 +56,6 @@ export {
   prevPage,
   nextPage,
   lastPage,
+  editBtn,
+  deleteBtn,
 }

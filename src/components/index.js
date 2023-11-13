@@ -13,6 +13,7 @@ import Admin from "./Admin";
 import MedicalHistory from "./MedicalHistory";
 import Billing from './Billing'
 import DataTable from "./DataTable";
+import ButtonTable from "./ButtonTable";
 
 export {
   Navbar,
@@ -30,4 +31,5 @@ export {
   MedicalHistory,
   Billing,
   DataTable,
+  ButtonTable,
 }

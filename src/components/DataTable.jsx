@@ -10,7 +10,7 @@ import '../stylesheets/DataTable.css';
 import { useState } from 'react';
 import { search, firstPage, prevPage, nextPage, lastPage } from '../assets';
 
-const DataTable = ({ data, columns }) => {
+const DataTable = ({ data, columns, boton }) => {
   const [sorting, setSorting] = useState([]);
   const [filtering, setfiltering] = useState('');
 
@@ -31,15 +31,19 @@ const DataTable = ({ data, columns }) => {
 
   return (
     <div className='DataTable'>
-      <div className='search-container'>
-        <input
-          className='search-input'
-          type='text'
-          value={filtering}
-          onChange={(e) => setfiltering(e.target.value)}
-          placeholder='Buscar pacientes'
-        />
-        <img className='search-img' src={search} alt='search button' />
+      <div className='actions'>
+        <div className='btn-table-container'>{boton}</div>
+
+        <div className='search-container'>
+          <input
+            className='search-input'
+            type='text'
+            value={filtering}
+            onChange={(e) => setfiltering(e.target.value)}
+            placeholder='Buscar pacientes'
+          />
+          <img className='search-img' src={search} alt='search button' />
+        </div>
       </div>
 
       <div className='table-container'>
