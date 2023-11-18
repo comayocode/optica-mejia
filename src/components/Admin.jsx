@@ -1,6 +1,5 @@
 import '../stylesheets/Admin.css';
-import { Route, Routes } from 'react-router-dom';
-import { ListaPacientes, MedicalHistory, Billing } from '.';
+import { Outlet } from 'react-router-dom';
 import { close, menu } from '../assets';
 import { useState } from 'react';
 
@@ -92,12 +91,7 @@ const Admin = () => {
 
       <div className='header-menu'>
         <HeaderAdmin toggleP={toggle} setToggleP={setToggle} />
-
-        <Routes>
-          <Route path='/patients' element={<ListaPacientes />} />
-          <Route path='/medical-history' element={<MedicalHistory />} />
-          <Route path='/billing' element={<Billing />} />
-        </Routes>
+        <Outlet />
       </div>
     </div>
   );
