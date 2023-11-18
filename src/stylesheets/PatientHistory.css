@@ -1,6 +1,4 @@
-/* TODO: Optimizar css (depurar) codigo repetitivo */
-
-.MedicalHistory {
+.PatientHistory {
   color: black;
   display: flex;
   align-items: center;
@@ -10,11 +8,7 @@
   overflow-x: hidden;
 }
 
-.title-medical-history {
+.title-medical-patient-history {
   font-size: 30px;
   width: 100%;
-}
-
-.see-btn > img{
-  width: 25px;
 }

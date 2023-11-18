@@ -55,9 +55,24 @@
   min-height: 436px;
 }
 
-.table-spacing {
+.table__spacing--patients {
   margin: 0 20px;
   width: 1200px;
+}
+
+.table__spacing--history {
+  margin: 0 20px;
+  width: 800px;
+}
+
+.table__spacing--history-details {
+  margin: 0 20px;
+  width: auto;
+}
+
+.table__spacing--patients--billing {
+  margin: 0 20px;
+  width: 800px;
 }
 
 table {

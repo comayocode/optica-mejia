@@ -59,7 +59,7 @@ const ListaPacientes = () => {
       <div className='title-container'>
         <h2 className='title-patients-list'>Lista de Pacientes</h2>
       </div>
-      <DataTable data={patientsList} columns={columns} boton={<ButtonTable  texto="Nuevo paciente"/>} />
+      <DataTable data={patientsList} columns={columns} boton={<ButtonTable  texto="Nuevo paciente"/>} widthVariant='table__spacing--patients'/>
     </div>
   );
 };

@@ -11,7 +11,7 @@ import { useState } from 'react';
 import { search, firstPage, prevPage, nextPage, lastPage } from '../assets';
 import { Modal } from './';
 
-const DataTable = ({ data, columns, boton }) => {
+const DataTable = ({ data, columns, boton, widthVariant }) => {
   const [sorting, setSorting] = useState([]);
   const [filtering, setfiltering] = useState('');
   const [modalState, setModalState] = useState(false);
@@ -55,7 +55,7 @@ const DataTable = ({ data, columns, boton }) => {
         </div>
 
         <div className='table-container'>
-          <div className='table-spacing'>
+          <div className={widthVariant}/* 'table-spacing' */>
             <table>
               <thead>
                 {table.getHeaderGroups().map((headerGroup) => (

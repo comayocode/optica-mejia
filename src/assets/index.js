@@ -28,6 +28,7 @@ import lastPage from '../assets/last-page.svg'
 import editBtn from '../assets/Edit.svg';
 import deleteBtn from '../assets/Delete.svg';
 import closeModal from '../assets/CloseModal.svg'
+import see from '../assets/see.svg';
 
 export {
   aboutImg,
@@ -60,4 +61,5 @@ export {
   editBtn,
   deleteBtn,
   closeModal,
+  see,
 }

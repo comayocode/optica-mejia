@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
 }
 
 .modal-container {
@@ -19,6 +20,7 @@
   border-radius: 5px;
   box-shadow: rgba(100,100,110, .2) 0px 7px 29px 0px;
   padding: 20px;
+  margin-top: 80px;
 }
 
 .modal-header {

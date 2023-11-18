@@ -15,6 +15,7 @@ import Billing from './Billing'
 import DataTable from "./DataTable";
 import ButtonTable from "./ButtonTable";
 import Modal from "./Modal";
+import PatientHistory from "./PatientHistory";
 
 export {
   Navbar,
@@ -34,4 +35,5 @@ export {
   DataTable,
   ButtonTable,
   Modal,
+  PatientHistory,
 }
