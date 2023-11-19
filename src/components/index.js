@@ -17,6 +17,8 @@ import ButtonTable from "./ButtonTable";
 import Modal from "./Modal";
 import PatientHistory from "./PatientHistory";
 import PatientHistoryDetail from "./PatientHistoryDetail";
+import PatientBilling from "./PatientBilling";
+import PatientBillingDetail from "./PatientBillingDetail";
 
 export {
   Navbar,
@@ -37,5 +39,7 @@ export {
   ButtonTable,
   Modal,
   PatientHistory,
-  PatientHistoryDetail
+  PatientHistoryDetail,
+  PatientBilling,
+  PatientBillingDetail,
 }

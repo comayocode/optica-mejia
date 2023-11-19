@@ -47,3 +47,9 @@
 .delete-btn {
   width: 25px;
 }
+
+@media (max-height: 670px) {
+  .title-container {
+    margin-top: 40px;
+  }
+}

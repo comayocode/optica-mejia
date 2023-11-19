@@ -1,8 +1,18 @@
 .Billing {
-  font-size: 40px;
   color: black;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: calc(100vw - 240px);
+  overflow-x: hidden;
+  padding: 10px;
+}
+
+.title-billing {
+  font-size: 30px;
+  width: 100%;
+}
+
+.see-btn > img{
+  width: 25px;
 }
