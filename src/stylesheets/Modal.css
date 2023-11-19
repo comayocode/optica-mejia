@@ -23,6 +23,11 @@
   margin-top: 80px;
 }
 
+.modal-container--patient-history {
+  width: 700px;
+  margin-top: 600px;
+}
+
 .modal-header {
   display: flex;
   align-items: center;
@@ -60,4 +65,10 @@
 
 .modal-container__close-img {
   width: 60%;
+}
+
+@media (min-width: 768px) {
+  .modal-container--patient-history {
+    margin-top: 50px;
+  }
 }
