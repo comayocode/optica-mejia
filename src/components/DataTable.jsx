@@ -9,12 +9,10 @@ import {
 import '../stylesheets/DataTable.css';
 import { useState } from 'react';
 import { search, firstPage, prevPage, nextPage, lastPage } from '../assets';
-import { Modal } from './';
 
-const DataTable = ({ data, columns, boton, widthVariant }) => {
+const DataTable = ({ data, columns, boton, widthVariant, state, setState }) => {
   const [sorting, setSorting] = useState([]);
   const [filtering, setfiltering] = useState('');
-  const [modalState, setModalState] = useState(false);
 
   const table = useReactTable({
     data: data,
@@ -37,7 +35,7 @@ const DataTable = ({ data, columns, boton, widthVariant }) => {
         <div className='actions'>
           <div
             className='btn-table-container'
-            onClick={() => setModalState(!modalState)}
+            onClick={() => setState(!state)}
           >
             {boton}
           </div>
@@ -132,57 +130,6 @@ const DataTable = ({ data, columns, boton, widthVariant }) => {
           </div>
         </div>
       </div>
-
-      <Modal state={modalState} setState={setModalState}>
-        <form className='patient-form'>
-          <div className="patient-form__div">
-            <input className='patient-form__input' type="text" required />
-            <label className='patient-form__label' htmlFor='cedula'>Cédula</label>
-          </div>
-
-          <div className="patient-form__div">
-            <input className='patient-form__input' id='edad' type="text" required />
-            <label className='patient-form__label' htmlFor='nombres'>Nombres</label>
-          </div>
-
-          <div className="patient-form__div">
-            <input className='patient-form__input' id='edad' type="text" required />
-            <label className='patient-form__label' htmlFor='edad'>Edad</label>
-          </div>
-
-          <div className="patient-form__div">
-            <input className='patient-form__input' id='edad' type="text" required />
-            <label className='patient-form__label' htmlFor='direccion'>Dirección</label>
-          </div>
-
-          <div className="patient-form__div">
-            <input className='patient-form__input' id='edad' type="text" required />
-            <label className='patient-form__label' htmlFor='celular_personal'>Celular Personal</label>
-          </div>
-
-          <div className="patient-form__div">
-            <input className='patient-form__input' id='edad' type="text" required />
-            <label className='patient-form__label' htmlFor='celular_familiar'>Celular Familiar</label>
-          </div>
-
-          <div className="patient-form__div">
-            <input className='patient-form__input' id='edad' type="text" required />
-            <label className='patient-form__label' htmlFor='ocupacion'>Ocupación</label>
-          </div>
-
-          <div className="patient-form__div">
-            <input className='patient-form__input' id='edad' type="text" required />
-            <label className='patient-form__label' htmlFor='eps'>EPS</label>
-          </div>
-
-          <div className="patient-form__div">
-            <input className='patient-form__input' id='edad' type="text" required />
-            <label className='patient-form__label' htmlFor='patologias'>Patologías</label>
-          </div>
-          
-          <a href="#" className='patient-form__btn'>Registrar</a>
-        </form>
-      </Modal>
     </>
   );
 };

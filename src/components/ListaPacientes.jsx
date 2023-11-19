@@ -1,8 +1,9 @@
 import '../stylesheets/ListaPacientes.css';
-import { DataTable, ButtonTable } from '.';
+import { DataTable, ButtonTable, Modal } from '.';
 import patientsList from '../data/patients.json';
 import { createColumnHelper } from '@tanstack/react-table';
 import { deleteBtn, editBtn } from '../assets';
+import { useState } from 'react';
 
 const columnHelper = createColumnHelper();
 
@@ -54,12 +55,66 @@ const columns = [
 ];
 
 const ListaPacientes = () => {
+
+  const [modalState, setModalState] = useState(false);
+
   return (
     <div className='ListaPacientes'>
       <div className='title-container'>
         <h2 className='title-patients-list'>Lista de Pacientes</h2>
       </div>
-      <DataTable data={patientsList} columns={columns} boton={<ButtonTable  texto="Nuevo paciente"/>} widthVariant='table__spacing--patients'/>
+      <DataTable data={patientsList} columns={columns} boton={<ButtonTable  texto="Nuevo paciente"/>} widthVariant='table__spacing--patients' state={modalState} setState={setModalState}/>
+
+      <Modal state={modalState} setState={setModalState} title='Registrar nuevo paciente'>
+        <form className='patient-form'>
+          <div className="patient-form__div">
+            <input className='patient-form__input' type="text" required />
+            <label className='patient-form__label' htmlFor='cedula'>Cédula</label>
+          </div>
+
+          <div className="patient-form__div">
+            <input className='patient-form__input' id='edad' type="text" required />
+            <label className='patient-form__label' htmlFor='nombres'>Nombres</label>
+          </div>
+
+          <div className="patient-form__div">
+            <input className='patient-form__input' id='edad' type="text" required />
+            <label className='patient-form__label' htmlFor='edad'>Edad</label>
+          </div>
+
+          <div className="patient-form__div">
+            <input className='patient-form__input' id='edad' type="text" required />
+            <label className='patient-form__label' htmlFor='direccion'>Dirección</label>
+          </div>
+
+          <div className="patient-form__div">
+            <input className='patient-form__input' id='edad' type="text" required />
+            <label className='patient-form__label' htmlFor='celular_personal'>Celular Personal</label>
+          </div>
+
+          <div className="patient-form__div">
+            <input className='patient-form__input' id='edad' type="text" required />
+            <label className='patient-form__label' htmlFor='celular_familiar'>Celular Familiar</label>
+          </div>
+
+          <div className="patient-form__div">
+            <input className='patient-form__input' id='edad' type="text" required />
+            <label className='patient-form__label' htmlFor='ocupacion'>Ocupación</label>
+          </div>
+
+          <div className="patient-form__div">
+            <input className='patient-form__input' id='edad' type="text" required />
+            <label className='patient-form__label' htmlFor='eps'>EPS</label>
+          </div>
+
+          <div className="patient-form__div">
+            <input className='patient-form__input' id='edad' type="text" required />
+            <label className='patient-form__label' htmlFor='patologias'>Patologías</label>
+          </div>
+
+          <a href="#" className='patient-form__btn'>Registrar</a>
+        </form>
+      </Modal>
     </div>
   );
 };
