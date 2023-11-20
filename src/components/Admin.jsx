@@ -13,25 +13,27 @@ import {
   LuDollarSign,
 } from 'react-icons/lu';
 
+/* Header del panel de administración con el menú hamburguesa */
 const HeaderAdmin = (props) => {
   return (
     <header className='HeaderAdmin'>
       <img
-        src={props.toggleP ? close : menu}
+        src={props.toggleP ? close : menu} /* Cambiar ícono del menu hamburguesa si está abierto o no el menú lateral */
         alt='menu'
         className='header-menu'
-        onClick={() => props.setToggleP((state) => !state)}
+        onClick={() => props.setToggleP((state) => !state)} /* Cambiar el estado toggle al dar clic */
       />
     </header>
   );
 };
 
 const Admin = () => {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false); /* Hook useState para saber si está abierto o cerrado el menú */
 
 
   return (
     <div className='Admin'>
+      {/* Menú lateral de navegación */}
       <aside className={`${toggle ? 'active' : 'flex'} menu-card`}>
         <nav className='admin-nav'>
           <div className='top-menu'>
@@ -39,7 +41,7 @@ const Admin = () => {
               <Logo />
             </div>
             <ul className='admin-nav__component-links'>
-              {adminNavLinks.map((link, index) => (
+              {adminNavLinks.map((link, index) => ( /* Recorrer datos de la constante para los links de navegación del panel admin */
                 <li
                   key={link.id}
                   className={`admin-nav__li ${
@@ -48,6 +50,7 @@ const Admin = () => {
                       : 'admin-nav__li--margin-bottom-10'
                   }`}
                 >
+                  {/* Establecer ícono para cada link y su ruta a la que apunta */}
                   <span className='admin-nav__icon'>
                     {link.id === 'patients' ? (
                       <LuUser />
@@ -66,6 +69,7 @@ const Admin = () => {
               ))}
             </ul>
           </div>
+          {/* "footer del menú donde se ubica el usuario que ingresa al panel" */}
           <div className='admin-nav__extra-actions'>
             <div className='profile-container'>
               {user.map((info) => (
@@ -90,8 +94,8 @@ const Admin = () => {
       </aside>
 
       <div className='header-menu'>
-        <HeaderAdmin toggleP={toggle} setToggleP={setToggle} />
-        <Outlet />
+        <HeaderAdmin toggleP={toggle} setToggleP={setToggle} /> {/* Pasar información al componente sobre el estado del menú */}
+        <Outlet /> {/* Renderizar componente de ruta anidada */}
       </div>
     </div>
   );

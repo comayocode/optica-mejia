@@ -8,6 +8,7 @@ const PatientBillingDetail = () => {
           Detalles de la Factura
         </h2>
       </div>
+      {/* Campos donde se rellena la data de la factura individual */}
       <div className='billing-detail-container'>
       <div className='billing-detail__first-group'>
             <div className="billing-detail__div">

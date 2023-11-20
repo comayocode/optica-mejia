@@ -11,6 +11,7 @@ function Login() {
         </Link>
       </header>
       <div className='content-section--login'>
+        {/* Formulario de LOGIN */}
         <form action='#' className='login-form'>
           <div className='inputs-login-container'>
             <div className='input-box'>
@@ -23,9 +24,10 @@ function Login() {
             </div>
           </div>
           <div className='btn-wrap'>
+            {/* Componente de botón primario */}
             <PrimaryButton
               text='Ingresar'
-              link='/admin/patients'
+              link='/admin/patients' /* Link de la ruta a la que apunta al dar clic */
               componentStyle='primary-btn--login'
               isTargetBlank={false}
             />

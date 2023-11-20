@@ -10,10 +10,12 @@ const columnHelper = createColumnHelper();
 
 const patientBillingArr = [];
 
+/* Recorrer data del JSON */
 patientBilling.map((data) => {
-  patientBillingArr.push(data);
+  patientBillingArr.push(data); /* Insertar data en el arreglo vacío */
 });
 
+/* Columnas o headers necesarios para la tabla */
 const columns = [
   {
     header: 'ID Factura',
@@ -24,6 +26,7 @@ const columns = [
     accessorKey: 'date',
   },
 
+  /* Header para la acción */
   columnHelper.accessor('action', {
     id: 'Accion',
     header: 'Acción',
@@ -41,7 +44,7 @@ const columns = [
 ];
 
 const PatientBilling = () => {
-  const [modalState, setModalState] = useState(false);
+  const [modalState, setModalState] = useState(false); /* Estado del modal "abierto o "cerrado" */
 
   return (
     <div className='PatientBilling'>
@@ -50,15 +53,17 @@ const PatientBilling = () => {
           Historial de Facturas de un Paciente
         </h2>
       </div>
+      {/* Renderizar tabla con la información de las facturas y los clientes */}
       <DataTable
         data={patientBillingArr}
         columns={columns}
         widthVariant='table__spacing--billing-details'
         boton={<ButtonTable texto='Nueva Factura' />}
-        state={modalState}
-        setState={setModalState}
+        state={modalState} /* Pasar el estado del modal */
+        setState={setModalState} /* regresar el estado del modal */
       />
 
+      {/* Componente modal maquetando el formulario para el registro de una nueva factura */}
       <Modal
         state={modalState}
         setState={setModalState}

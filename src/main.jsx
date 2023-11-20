@@ -7,6 +7,7 @@ import { Login, Admin, PatientHistoryDetail } from './components';
 import { ListaPacientes, MedicalHistory, Billing, PatientHistory, PatientBilling, PatientBillingDetail } from './components';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  /* Rutas de la aplicación */
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<App />} />

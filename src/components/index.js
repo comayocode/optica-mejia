@@ -1,3 +1,4 @@
+/* Index file para componentes, donde se exportan como variables para tener mejor orden en las importaciones dentro de los componentes */
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import About from "./About";

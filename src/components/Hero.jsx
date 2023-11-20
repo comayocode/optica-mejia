@@ -4,6 +4,7 @@ import { hero } from '../constants';
 import PrimaryButton from './PrimaryButton';
 
 const Hero = () => (
+  /* Maquetar el contenido del hero a travéz del contenido de la información de la constante  "hero"*/
   <section id='home'>
     <div className='red-space'>
       <img src={heroImg} alt='Hero image' className='hero-img' />

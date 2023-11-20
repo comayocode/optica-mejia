@@ -1,3 +1,5 @@
+/*Importar todas las imágenes de la carpeta /assets, para luego exportalas como variables.
+ *Código más limpio a la hora de importar imágenes en los componentes */
 import aboutImg from '../assets/About.png';
 import close from '../assets/Close.svg';
 import contactButton from '../assets/ContactButton.png';

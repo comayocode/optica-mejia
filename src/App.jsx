@@ -11,6 +11,7 @@ import {
 
 function App() {
   return (
+    /* Componentes para la landing page */
     <div className='App'>
       <div className='navbar'>
         <Navbar />

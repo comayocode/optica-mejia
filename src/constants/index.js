@@ -1,5 +1,6 @@
 import { gallery01, gallery02, gallery03, gallery04, gallery05, aboutImg, testimonial01, facebook, youtube, whatsapp, instagram, picProfile } from '../assets';
 
+/* Contenido para las diferentes secciones de la landing page */
 export const hero = {
   tittle: "Profesionales de confianza para el cuidado de tus ojos",
   description: "Optica Mejía es una clínica de atención médica profesional que se especializa en el examen, diagnóstico, tratamiento de problemas de visión y enfermedades oculares."
@@ -139,6 +140,7 @@ export const socialMedia = [
   }
 ]
 
+/* Contenido para el menú de navegación del panel de administación */
 export const adminNavLinks = [
   {
     id: "patients",
@@ -154,6 +156,7 @@ export const adminNavLinks = [
   },
 ]
 
+/* Contenido para el usuario logeado en el panel de administración */
 export const user = [
   {
     id: 1,

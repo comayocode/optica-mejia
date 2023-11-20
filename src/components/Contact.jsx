@@ -7,6 +7,7 @@ const Contact = () => (
   <section id='contact' className='contact'>
     <h2 className='section-title'>Contacto</h2>
     <div className='content-section'>
+      {/* Formulario de contacto */}
       <form action='#' className='contact-form'>
         <div className='inputs-container'>
           {contact.map((element, index) => (
@@ -22,6 +23,7 @@ const Contact = () => (
         </div>
         <button className='form-btn'>Enviar</button>
       </form>
+      {/* Mapa de ubicación */}
       <div className='map-container'>
         <div className='map-info'>
           <p className='map__address'>
@@ -32,8 +34,9 @@ const Contact = () => (
           </div>
         </div>
       </div>
+      {/* Íconos de redes sociales */}
       <div className='contact-social-media'>
-        {socialMedia.map((social, index) => (
+        {socialMedia.map((social, index) => ( /* Recorrer constante para las redes sociales */
           <a
             key={social.id}
             href={social.link}

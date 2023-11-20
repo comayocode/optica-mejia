@@ -10,10 +10,12 @@ const columnHelper = createColumnHelper();
 
 const patientHistory = [];
 
+/* Recorrer JSON */
 patientMedicalHistory.map((data) => {
-  patientHistory.push(data);
+  patientHistory.push(data); /* Enviar datos al arreglo vacío */
 });
 
+/* Columnas o headers para la tabla */
 const columns = [
   {
     header: 'No. Historia',
@@ -23,6 +25,7 @@ const columns = [
     header: 'Fecha',
     accessorKey: 'date',
   },
+  /* Columna para las acciones de la tabla */
   columnHelper.accessor('action', {
     id: 'Accion',
     header: 'Acción',
@@ -37,7 +40,7 @@ const columns = [
 ];
 
 const PatientHistory = () => {
-  const [modalState, setModalState] = useState(false);
+  const [modalState, setModalState] = useState(false); /* Estado del modal "abierto" o "cerrado" */
 
   return (
     <div className='PatientHistory'>
@@ -46,6 +49,7 @@ const PatientHistory = () => {
           Historial Clínico de un Único Paciente
         </h2>
       </div>
+      {/* Tabla para ver el historial médico del paciente */}
       <DataTable
         data={patientMedicalHistory}
         columns={columns}
@@ -55,6 +59,7 @@ const PatientHistory = () => {
         setState={setModalState}
       />
 
+      {/* Componente modal maquetando el formulario para el registro de una nueva historia clinica del paciente */}
       <Modal
         state={modalState}
         setState={setModalState}

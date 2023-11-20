@@ -8,6 +8,8 @@ export const PatientHistoryDetail = () => {
           Detalles de la Historia Clínica
         </h2>
       </div>
+
+      {/* Maquetación de los campos para ingresar la información de la tabla/fila */}
       <div className='history-detail-container'>
         <div className='history-detail__first-group'>
           <div className='history-detail-form__div'>

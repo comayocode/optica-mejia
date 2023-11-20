@@ -9,10 +9,12 @@ const columnHelper = createColumnHelper();
 
 const medicalHistory = [];
 
+/* Recorrer archivo JSON */
 patientsMedicalHistory.map((data) => {
-  medicalHistory.push(data);
+  medicalHistory.push(data); /* Insertar datos al arreglo vacío */
 });
 
+/* Columnas o headers para la tabla */
 const columns = [
   {
     header: 'Cédula',
@@ -43,6 +45,7 @@ const MedicalHistory = () => {
           Historial Clínico de Pacientes
         </h2>
       </div>
+      {/* Renderizar tabla pasándole sus propiedades */}
       <DataTable
         data={patientsMedicalHistory}
         columns={columns}
