@@ -1,8 +1,20 @@
-# React + Vite
+<p align="center" >
+  <img src="https://i.ibb.co/fkGG9G7/frontend.png" width="700" />
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Sistematización de Historias clínicas
 
-Currently, two official plugins are available:
+Desarrollo frontend para una aplicación de una óptica enfocado a la Sistematización de Historias clínicas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Páginas
+- Landing page
+- Formulario de login
+- Panel de administración
+    - Pacientes
+    - Historial clínico
+    - Facturación
+
+## Instalación
+- Clonar repositorio
+- Instalar módulos de node `npm i`
+- Ejecutar servidor local `npm run dev`
