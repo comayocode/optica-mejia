@@ -7,7 +7,7 @@ function Login() {
     <div className='Login'>
       <header className='login-header'>
         <Link to='/' className='login-header__link'>
-          <Logo />
+          <Logo isOpen={true}/>
         </Link>
       </header>
       <div className='content-section--login'>

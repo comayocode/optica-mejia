@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+
 :root {
   --bg-primary: #FAFAFA;
   --bg-secondary: #EDE6DE;
+  --accent-color: #5C705E;
   --tittle-color: #313131;
   --text-dark: #1E1E1E;
   --text-gray: #646161;
@@ -8,6 +12,7 @@
   --testimonial-card: #A78158;
   --btn-color-primary: #5E4731;
   --btn-color-secondary: #4C292F;
+  --active-link-dashboard-menu: #DAC8B5;
 
   --title-size-1366: 30px;
   --paragraph-size-1366: 18px;

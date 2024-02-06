@@ -1,4 +1,4 @@
-import { gallery01, gallery02, gallery03, gallery04, gallery05, aboutImg, testimonial01, facebook, youtube, whatsapp, instagram, picProfile } from '../assets';
+import { gallery01, gallery02, gallery03, gallery04, gallery05, aboutImg, testimonial01, facebook, youtube, whatsapp, instagram, picProfile, addBill, addHistory, addUser, patientList, addBillGray, addHistoryGray, addUserGray, patientListGray,} from '../assets';
 
 /* Contenido para las diferentes secciones de la landing page */
 export const hero = {
@@ -144,15 +144,27 @@ export const socialMedia = [
 export const adminNavLinks = [
   {
     id: "patients",
-    title: "Pacientes"
+    title: "Listar Pacientes",
+    icon: patientList,
+    iconGray: patientListGray,
   },
   {
     id: "medical-history",
-    title: "Historial Clínico"
+    title: "Agregar Historial",
+    icon: addHistory,
+    iconGray: addHistoryGray
   },
   {
     id: "billing",
-    title: "Facturación"
+    title: "Agregar Factura",
+    icon: addBill,
+    iconGray: addBillGray
+  },
+  {
+    id: "users",
+    title: "Agregar Usuario",
+    icon: addUser,
+    iconGray: addUserGray
   },
 ]
 
@@ -160,7 +172,8 @@ export const adminNavLinks = [
 export const user = [
   {
     id: 1,
-    rol: "Admin",
+    rolAside: "Admin",
+    rolTopMenu: "Administrador",
     name: 'Pedro Mora',
     img: picProfile
   }

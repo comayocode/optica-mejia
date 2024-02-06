@@ -13,7 +13,7 @@ const PrimaryButton = ({ text, link, icon, componentStyle, isTargetBlank }) => (
     }`.trimEnd()} /* Clase personalizada pasada por el prop */
   >
     <img src={icon} className='primary-btn__img' />
-    {text}
+    <span>{text}</span>
   </Link>
 );
 export default PrimaryButton;

@@ -13,7 +13,7 @@ import heroImg from '../assets/Hero.png';
 import heroTextLine from '../assets/HeroTextLine.png';
 import instagram from '../assets/Instagram.png';
 import login from '../assets/Login.png';
-import logo from '../assets/Logo.svg';
+import logo from '../assets/logo-v2.png';
 import mapImg from '../assets/map.png';
 import menu from '../assets/Menu.svg';
 import sendButton from '../assets/SendButton.png';
@@ -31,6 +31,15 @@ import editBtn from '../assets/Edit.svg';
 import deleteBtn from '../assets/Delete.svg';
 import closeModal from '../assets/CloseModal.svg'
 import see from '../assets/see.svg';
+import patientList from '../assets/PatientList.svg';
+import addBill from '../assets/AddBill.svg';
+import addHistory from '../assets/addHistory.svg';
+import addUser from '../assets/addUser.svg';
+import addPatient from '../assets/AddPatient.svg';
+import patientListGray from '../assets/PatientListGray.svg';
+import addBillGray from '../assets/AddBillGray.svg';
+import addHistoryGray from '../assets/addHistoryGray.svg';
+import addUserGray from '../assets/addUserGray.svg';
 
 export {
   aboutImg,
@@ -64,4 +73,13 @@ export {
   deleteBtn,
   closeModal,
   see,
+  patientList,
+  addBill,
+  addUser,
+  addHistory,
+  addPatient,
+  patientListGray,
+  addBillGray,
+  addUserGray,
+  addHistoryGray,
 }

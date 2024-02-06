@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className='main-menu'>
       <a href='#home' className='nav-logo'>
-        <Logo />
+        <Logo isOpen={true}/>
       </a>
       <ul className='main-menu__list hidden'>
         {/* Recorrer la constante navLinks para crear el menú de navegación */}

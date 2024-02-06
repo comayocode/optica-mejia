@@ -10,16 +10,14 @@
 }
 
 /* --- NavBarAdmin --- */
-
-
 .menu-card {
   background-color: #EDE6DE;
   height: 100vh;
-  width: 240px;
+  width: 260px;
   position: fixed;
   left: -100%;
   z-index: 99;
-  transition: all .5s ease;
+  transition: all .5s ease-out;
 }
 
 .active {
@@ -28,24 +26,30 @@
 
 .admin-nav {
   height: 100%;
-  width: 260px;
   padding: 20px 0 20px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+.admin-nav__li a.active {
+  background-color: var(--active-link-dashboard-menu);
+  width: 220px;
+  height: 42px;
+  align-items: center;
+  border-radius: 4px;
+}
+
 .top-menu {
-  height: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .admin-nav__logo {
   display: flex;
   width: 200px;
   justify-content: space-between;
+  margin-bottom: 50px;
 }
 
 .close-menu {
@@ -53,6 +57,29 @@
   align-items: center;
   color: #322828;
   font-size: 30px;
+}
+
+/* BTN agregar paciente */
+.primary-btn--navbar-open {
+  width: 220px;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  font-size: 17px;
+}
+
+.primary-btn--navbar-close {
+  width: 48px;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+}
+
+.primary-btn__img {
+  padding-left: 5px;
+}
+
+.mid-menu {
+  height: 100%;
+  margin-top: 30px;
 }
 
 .admin-nav__component-links {
@@ -72,10 +99,21 @@
 }
 
 .admin-nav__link {
+  display: flex;
+  align-items: center;
+  line-height: calc(100% + 3px);
   color: var(--text-dark);
   font-size: 22px;
   text-decoration: none;
   font-weight: 500;
+  padding-left: 15px;
+  height: 42px;
+}
+
+.admin-nav__link:hover {
+  background-color: var(--active-link-dashboard-menu);
+  border-radius: 4px;
+  width: 220px;
 }
 
 .admin-nav__icon {
@@ -100,6 +138,14 @@
 
 .profile__user {
   display: flex;
+}
+
+.profile__rol {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  padding-top: 1px;
+  margin-right: 22px;
 }
 
 .user-profile__pic {
@@ -138,7 +184,7 @@
 
 .HeaderAdmin {
   position: relative;
-  background-color: var(--testimonial-card);
+  background-color: var(--btn-color-primary);
   width: 100vw;
   height: 50px;
   display: flex;
@@ -151,17 +197,31 @@
   cursor: pointer;
 }
 
-.header-menu {
-  width: 25px;
+.admin__content {
+  width: 27px;
 }
+
 .width-menu-open {
   width: calc(100vw - 240px) !important;
 }
+
 .width-menu-close {
   width: 100vw !important;
 }
 
-.header-menu > div {
+.admin__content>div {
   height: calc(100vh - 50px);
   width: 100vw;
+}
+
+@media (min-width: 768px) {
+
+  .menu-card {
+    background-color: #EDE6DE;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    z-index: 99;
+    transition: none;
+  }
 }
