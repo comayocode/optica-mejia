@@ -178,3 +178,52 @@ export const user = [
     img: picProfile
   }
 ]
+
+/* Datos del Formulario para agregar paciente */
+export const addPatientForm = [
+  {
+    id: "cedula",
+    htmlFor: "cedula",
+    text: "Cédula"
+  },
+  {
+    id: "nombres",
+    htmlFor: "nombres",
+    text: "Nombres"
+  },
+  {
+    id: "edad",
+    htmlFor: "edad",
+    text: "Edad"
+  },
+  {
+    id: "direccion",
+    htmlFor: "direccion",
+    text: "Dirección"
+  },
+  {
+    id: "celular-personal",
+    htmlFor: "celular-personal",
+    text: "Celular Personal"
+  },
+  {
+    id: "celular-familiar",
+    htmlFor: "celular-familiar",
+    text: "Celular Familiar"
+  },
+  {
+    id: "ocupacion",
+    htmlFor: "ocupacion",
+    text: "Ocupación"
+  },
+  {
+    id: "eps",
+    htmlFor: "eps",
+    text: "EPS"
+  },
+  {
+    id: "patologias",
+    htmlFor: "patologias",
+    text: "Patologías"
+  },
+]

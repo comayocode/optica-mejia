@@ -9,7 +9,7 @@ import Footer from "./Footer";
 import PrimaryButton from "./PrimaryButton";
 import Login from "./Login";
 import Logo from "./Logo";
-import ListaPacientes from "./ListaPacientes";
+import ListaPacientes from "./PatientList";
 import Admin from "./Admin";
 import MedicalHistory from "./MedicalHistory";
 import Billing from './Billing'
@@ -20,6 +20,7 @@ import PatientHistory from "./PatientHistory";
 import PatientHistoryDetail from "./PatientHistoryDetail";
 import PatientBilling from "./PatientBilling";
 import PatientBillingDetail from "./PatientBillingDetail";
+import AddPatientForm from "./AddPatientForm";
 
 export {
   Navbar,
@@ -43,4 +44,5 @@ export {
   PatientHistoryDetail,
   PatientBilling,
   PatientBillingDetail,
+  AddPatientForm,
 }
