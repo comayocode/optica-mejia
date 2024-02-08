@@ -2,6 +2,7 @@ import '../stylesheets/Admin.css';
 import { Outlet } from 'react-router-dom';
 import { close, menu, addPatient } from '../assets';
 import { useState } from 'react';
+import { Modal, AddPatientForm } from './index';
 
 import { adminNavLinks, user } from '../constants';
 import { Logo, PrimaryButton } from './index';
@@ -14,19 +15,40 @@ const Admin = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
+  const [modalState, setModalState] =
+    useState(false); /* Estado del modal "abierto" o "cerrado" */
+
   return (
     <div className='Admin'>
       {/* Menú lateral de navegación */}
       {/* Mostrar un menú u otro, dependiendo del ancho de la pantalla */}
-      {screenWidth > 768 ? (
-        <DesktopAside toggle={toggle} isOpen={isOpen} />
+      {screenWidth >= 768 ? (
+        <DesktopAside
+          toggle={toggle}
+          isOpen={isOpen}
+          modalState={modalState}
+          setModalState={setModalState}
+        />
       ) : (
-        <MobileAside toggle={toggle} isOpen={isOpen} setIsOpen={setIsOpen} />
+        <MobileAside
+          toggle={toggle}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          modalState={modalState}
+          setModalState={setModalState}
+        />
       )}
-      <div className={`admin__content` }>
+      <div className={`admin__content`}>
         <HeaderAdmin toggleP={isOpen} setToggleP={setIsOpen} />
         <Outlet /> {/* Renderizar componente de ruta anidada */}
       </div>
+      <Modal
+        state={modalState}
+        setState={setModalState}
+        title='Registrar nuevo paciente'
+      >
+        <AddPatientForm />
+      </Modal>
     </div>
   );
 };
@@ -48,7 +70,7 @@ const HeaderAdmin = ({ toggleP, setToggleP }) => {
       )}
 
       {/* Ocultar o mostrar tipo de usuario */}
-      {screenWidth > 768 ? (
+      {screenWidth >= 768 ? (
         user.map((info) => (
           <div key={info.id} className='profile__user'>
             <img
@@ -72,7 +94,7 @@ const HeaderAdmin = ({ toggleP, setToggleP }) => {
 };
 
 // Menú latera en computadores
-const DesktopAside = ({ toggle, isOpen }) => {
+const DesktopAside = ({ toggle, isOpen, modalState, setModalState }) => {
   return (
     <aside
       className={`menu-card`}
@@ -88,16 +110,26 @@ const DesktopAside = ({ toggle, isOpen }) => {
 
           {/* Botón para agregar paciente si está abierto o cerrad el menú */}
           {isOpen ? (
-            <PrimaryButton
-              text='Agregar Paciente'
-              icon={addPatient}
-              componentStyle='primary-btn--navbar-open'
-            />
+            // Botón cuando el menú está abierto
+            <div
+              onClick={() => setModalState(!modalState)} // abrir el modal
+            >
+              <PrimaryButton
+                text='Agregar Paciente'
+                icon={addPatient}
+                componentStyle='primary-btn--navbar-open'
+              />
+            </div>
           ) : (
-            <PrimaryButton
-              icon={addPatient}
-              componentStyle='primary-btn--navbar-close'
-            />
+            // Botón cuando el menú está semi-cerrado (mustra únicamente los íconos)
+            <div
+              onClick={() => setModalState(!modalState)} // abrir el modal
+            >
+              <PrimaryButton
+                icon={addPatient}
+                componentStyle='primary-btn--navbar-close'
+              />
+            </div>
           )}
         </div>
         <div className='mid-menu'>
@@ -168,7 +200,14 @@ const DesktopAside = ({ toggle, isOpen }) => {
 };
 
 // Menú latera en móviles
-const MobileAside = ({ isOpen, setIsOpen }) => {
+const MobileAside = ({ isOpen, setIsOpen, modalState, setModalState }) => {
+
+  // Abrir el modal para agregar paciente y cerrar automáticamente el menú
+  const toggleMenuModal = () => {
+    setIsOpen(!isOpen); // cambiar estado del menú abierto a cerrado y visceversa
+    setModalState(!modalState); // cambiar estado del modal abierto a cerrado y visceversa
+  }
+
   return (
     <aside className={`${isOpen ? 'active' : 'flex'} menu-card`}>
       <nav className='admin-nav'>
@@ -176,12 +215,15 @@ const MobileAside = ({ isOpen, setIsOpen }) => {
           <div className='admin-nav__logo'>
             <Logo isOpen={true} />
           </div>
-
-          <PrimaryButton
-            text='Agregar Paciente'
-            icon={addPatient}
-            componentStyle='primary-btn--navbar-open'
-          />
+          <div
+            onClick={ toggleMenuModal}
+          >
+            <PrimaryButton
+              text='Agregar Paciente'
+              icon={addPatient}
+              componentStyle='primary-btn--navbar-open'
+            />
+          </div>
         </div>
         <div className='mid-menu'>
           <ul className='admin-nav__component-links'>

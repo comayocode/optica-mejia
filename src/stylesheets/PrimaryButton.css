@@ -1,6 +1,7 @@
 .primary-btn {
+  display: inline-block;
   width: 175px;
-  height: 35px;
+  height: 42px;
   border: none;
   background-color: var(--btn-color-primary);
   color: var(--text-white);
@@ -13,7 +14,7 @@
 }
 
 .primary-btn__img {
-  display: none;
+  display: inline-block;
 }
 
 @media (min-width: 768px) {
@@ -37,6 +38,6 @@
 
   .primary-btn__img {
     display: inline-block;
-    /* padding-right: 5px; */
+    padding-left: 5px;
   }
 }

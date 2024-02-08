@@ -64,7 +64,14 @@
   width: 220px;
   border-radius: 5px;
   background-color: var(--accent-color);
-  font-size: 17px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-btn--navbar-open>span {
+  padding-left: 10px;
 }
 
 .primary-btn--navbar-close {
@@ -73,9 +80,9 @@
   background-color: var(--accent-color);
 }
 
-.primary-btn__img {
+/* .primary-btn__img {
   padding-left: 5px;
-}
+} */
 
 .mid-menu {
   height: 100%;
