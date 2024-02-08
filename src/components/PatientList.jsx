@@ -1,4 +1,4 @@
-import '../stylesheets/ListaPacientes.css';
+import '../stylesheets/PatientList.css';
 import { DataTable, ButtonTable, Modal, AddPatientForm } from '.';
 import patientsList from '../data/patients.json';
 import { createColumnHelper } from '@tanstack/react-table';
@@ -56,12 +56,12 @@ const columns = [
   }),
 ];
 
-const ListaPacientes = () => {
+const PatientList = () => {
 
   const [modalState, setModalState] = useState(false); /* Estado del modal "abierto" o "cerrado" */
 
   return (
-    <div className='ListaPacientes'>
+    <div className='PatientList'>
       <div className='title-container'>
         <h2 className='title-patients-list'>Lista de Pacientes</h2>
       </div>
@@ -76,4 +76,4 @@ const ListaPacientes = () => {
   );
 };
 
-export default ListaPacientes;
+export default PatientList;

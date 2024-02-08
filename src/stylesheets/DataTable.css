@@ -22,7 +22,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 .btn-table-container {
@@ -181,7 +182,7 @@ tr:nth-child(even) {
   border: 1.5px solid var(--primary);
 }
 
-.patient-form__input:is(:focus, :valid) ~ .patient-form__label {
+.patient-form__input:is(:focus, :valid)~.patient-form__label {
   transform: translateY(-135%) scale(.88);
   background-color: #D9D9D9;
   padding-inline: .3rem;
@@ -199,9 +200,10 @@ tr:nth-child(even) {
   font-weight: 400;
   font-size: var(--paragraph-size-320);
 }
-@media (min-width: 768px) {
+
+@media (min-width: 525px) {
   .actions {
     flex-direction: row;
-    margin-top: 0;
+    margin-top: 7px;
   }
 }

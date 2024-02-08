@@ -1,19 +1,19 @@
 /* TODO: Optimizar css (depurar) codigo repetitivo */
 
-.ListaPacientes {
+.PatientList {
   color: black;
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
   overflow-x: hidden;
+  padding: 10px;
 }
+
 .title-container {
   display: flex;
   justify-content: start;
   margin: 20px;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .title-patients-list {
@@ -36,7 +36,7 @@
   margin: 0 5px;
 }
 
-.action-table-btn > img {
+.action-table-btn>img {
   cursor: pointer;
 }
 
@@ -51,5 +51,27 @@
 @media (max-height: 670px) {
   .title-container {
     margin-top: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .PatientList {
+    padding-left: 127px;
+    padding-right: 40px;
+    padding-bottom: 25px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .PatientList {
+    padding-left: 137px;
+    padding-right: 50px;
+    padding-bottom: 30px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .PatientList {
+    padding: 30px 0 30px 87px;
   }
 }

@@ -72,6 +72,5 @@
 @media (min-width: 768px) {
   .actions {
     flex-direction: row;
-    margin-top: 0;
   }
 }

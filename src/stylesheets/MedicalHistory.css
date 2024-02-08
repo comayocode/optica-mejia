@@ -8,6 +8,7 @@
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
+  padding: 10px;
 }
 
 .title-medical-history {
@@ -15,6 +16,6 @@
   width: 100%;
 }
 
-.see-btn > img{
+.see-btn>img {
   width: 25px;
 }
