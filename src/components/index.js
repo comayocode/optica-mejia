@@ -22,6 +22,7 @@ import PatientBilling from "./PatientBilling";
 import PatientBillingDetail from "./PatientBillingDetail";
 import AddPatientForm from "./AddPatientForm";
 import AddUser from "./AddUser";
+import PatientDetail from "./PatientDetail";
 
 export {
   Navbar,
@@ -47,4 +48,5 @@ export {
   PatientBillingDetail,
   AddPatientForm,
   AddUser,
+  PatientDetail,
 }

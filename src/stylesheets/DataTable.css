@@ -53,7 +53,7 @@
 
 .table-container {
   overflow-x: auto;
-  min-height: 436px;
+  /* min-height: 436px; */
 }
 
 .table__spacing--patients {
@@ -64,6 +64,12 @@
 .table__spacing--history {
   margin: 0 20px;
   width: 800px;
+}
+
+.table__spacing--patient-history,
+.table__spacing--patient-bills {
+  margin: 0 15px;
+  height: 300px;
 }
 
 .table__spacing--history-details {
@@ -205,5 +211,23 @@ tr:nth-child(even) {
   .actions {
     flex-direction: row;
     margin-top: 7px;
+  }
+}
+
+@media (min-width: 525px) {
+
+  .table__spacing--patient-history,
+  .table__spacing--patient-bills {
+    max-width: 571px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .table__spacing--patient-history,
+  .table__spacing--patient-bills {
+    margin: 10px 20px;
+    height: 150px;
   }
 }

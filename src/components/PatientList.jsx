@@ -2,8 +2,9 @@ import '../stylesheets/PatientList.css';
 import { DataTable, ButtonTable, Modal, AddPatientForm } from '.';
 import patientsList from '../data/patients.json';
 import { createColumnHelper } from '@tanstack/react-table';
-import { deleteBtn, editBtn } from '../assets';
+import { see } from '../assets';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const columnHelper = createColumnHelper();
 
@@ -45,12 +46,12 @@ const columns = [
     header: 'Acción',
     cell: () => (
       <div className='actions-column'>
-        <a className='action-table-btn edit-btn'>
-          <img src={editBtn} />
-        </a>{' '}
-        <a className='action-table-btn delete-btn'>
-          <img src={deleteBtn} />
-        </a>
+        <Link
+          to='../patient-detail'
+          className='action-table-btn see-btn'
+        >
+          <img src={see} />
+        </Link>
       </div>
     ),
   }),

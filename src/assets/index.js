@@ -40,6 +40,7 @@ import patientListGray from '../assets/PatientListGray.svg';
 import addBillGray from '../assets/AddBillGray.svg';
 import addHistoryGray from '../assets/addHistoryGray.svg';
 import addUserGray from '../assets/addUserGray.svg';
+import addDetail from '../assets/AddDetail.svg'
 
 export {
   aboutImg,
@@ -82,4 +83,5 @@ export {
   addBillGray,
   addUserGray,
   addHistoryGray,
+  addDetail,
 }
