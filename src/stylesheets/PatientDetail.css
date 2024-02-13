@@ -17,6 +17,8 @@
   grid-row-gap: 20px;
   overflow-x: hidden;
   padding-bottom: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 /* --- Cédula & Nombre de paciente --- */
@@ -39,6 +41,7 @@
 .patient__history,
 .patient__bills {
   flex-direction: column;
+  position: relative;
 }
 
 .patient__history,
@@ -96,6 +99,18 @@
 .HeaderPatientDetail>img {
   width: 25px;
   margin-right: 20px;
+}
+
+/* --- Estilos personalizados para las tablas --- */
+.patient__bills .DataTable,
+.patient__history .DataTable {
+  font-size: 15px;
+}
+
+.patient__bills .DataTable .table__spacing--patient-bills thead th,
+.patient__history .DataTable .table__spacing--patient-history thead th {
+  font-size: 17px;
+  padding: 8px;
 }
 
 /* --- Detail --- */
@@ -193,5 +208,36 @@
   .patient__bills {
     background-color: var(--bg-secondary);
     width: 100%;
+  }
+
+  /* --- Estilos personalizados para las tablas --- */
+  .patient__bills .DataTable,
+  .patient__history .DataTable {
+    font-size: 15px;
+  }
+
+  .patient__bills .DataTable .actions,
+  .patient__history .DataTable .actions {
+    position: absolute;
+    top: -17px;
+    left: 170px;
+  }
+
+  .patient__bills .DataTable .actions .search-input,
+  .patient__history .DataTable .actions .search-input {
+    background-color: #E2D6C7;
+    color: #231F20;
+    width: 180px;
+  }
+
+  .patient__bills .DataTable .table__spacing--patient-bills thead th,
+  .patient__history .DataTable .table__spacing--patient-history thead th {
+    font-size: 17px;
+    padding: 5px;
+  }
+
+  .patient__bills .DataTable .table__spacing--patient-bills tbody td,
+  .patient__history .DataTable .table__spacing--patient-history tbody td {
+    padding: 5px;
   }
 }

@@ -17,6 +17,34 @@
   justify-content: center;
 }
 
+/* --- Scroll personalizado para las tablas --- */
+.table-container::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.table-container::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.table-container::-webkit-scrollbar-button:increment,
+.table-container::-webkit-scrollbar-button {
+  display: none;
+}
+
+.table-container::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #c1bebf;
+  border-radius: 20px;
+  border: 1px solid #f1f2f3;
+}
+
+.table-container::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
 .actions {
   display: flex;
   flex-direction: column;
@@ -227,7 +255,7 @@ tr:nth-child(even) {
 
   .table__spacing--patient-history,
   .table__spacing--patient-bills {
-    margin: 10px 20px;
+    margin: 20px;
     height: 150px;
   }
 }
