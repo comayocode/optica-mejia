@@ -136,6 +136,10 @@
   margin-right: 20px;
 }
 
+.HeaderPatientDetail>img:hover {
+  cursor: pointer;
+}
+
 /* --- Estilos personalizados para las tablas --- */
 .patient__bills .DataTable,
 .patient__history .DataTable {
@@ -164,6 +168,12 @@
 /* --- Clinic History --- */
 .patient__history.DataTable {
   margin: 20px 0;
+}
+
+/* --- Tipo de letra para los modales --- */
+.actions-column .overlay,
+.HeaderPatientDetail .overlay {
+  font-family: Roboto, sans-serif;
 }
 
 @media (min-width: 525px) {

@@ -1,12 +1,12 @@
 import '../stylesheets/PatientDetail.css';
-import { editBtn, addDetail, see } from '../assets';
+import { editBtn, addHistoryFrom, addBillForm, see } from '../assets';
 
 /* --- Historial clínico --- */
-import { DataTable } from '.';
+import { DataTable, Modal, AddHistoryForm, AddBillForm, AddPatientForm } from '.';
 import patientMedicalHistory from '../data/patient_medical_history.json';
 import patientBilling from '../data/patient_billing.json';
 import { createColumnHelper } from '@tanstack/react-table';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const columnHelper = createColumnHelper();
 
@@ -33,14 +33,7 @@ const historyColumns = [
     id: 'Accion',
     header: 'Acción',
     cell: () => (
-      <div className='actions-column'>
-        <Link className='action-table-btn edit-btn'>
-          <img src={editBtn} />
-        </Link>
-        <Link to='../patient-history' className='action-table-btn see-btn'>
-          <img src={see} />
-        </Link>
-      </div>
+      <HistoryActionColum />
     ),
   }),
 ];
@@ -70,17 +63,7 @@ const BillingColumns = [
     id: 'Accion',
     header: 'Acción',
     cell: () => (
-      <div className='actions-column'>
-        <Link className='action-table-btn edit-btn'>
-          <img src={editBtn} />
-        </Link>
-        <Link
-          to='../patient-billing-detail'
-          className='action-table-btn see-btn'
-        >
-          <img src={see} />
-        </Link>
-      </div>
+      <BillsActionColumn />
     ),
   }),
 ];
@@ -156,7 +139,7 @@ const PatientDetail = () => {
         </div>
 
         <div className='patient__history'>
-          <HeaderPatientDetail title='Historial Clínico' icon={addDetail} />
+          <HeaderPatientDetail title='Historial Clínico' icon={addHistoryFrom} />
           <DataTable
             data={patientMedicalHistory}
             columns={historyColumns}
@@ -165,14 +148,11 @@ const PatientDetail = () => {
         </div>
 
         <div className='patient__bills'>
-          <HeaderPatientDetail title='Facturas' icon={addDetail} />
+          <HeaderPatientDetail title='Facturas' icon={addBillForm} />
           <DataTable
             data={patientBillingArr}
             columns={BillingColumns}
             widthVariant='table__spacing--patient-bills'
-            // boton={<ButtonTable texto='Nueva Factura' />}
-            // state={modalState} /* Pasar el estado del modal */
-            // setState={setModalState} /* regresar el estado del modal */
           />
         </div>
       </div>
@@ -180,11 +160,153 @@ const PatientDetail = () => {
   );
 };
 
+// --- Header de "tarjetas" ---
 const HeaderPatientDetail = ({ title, icon }) => {
+
+  const [modalEditState, setModalEditState] = useState(false); // Hook para modal de actualizar paciente
+  const [modalAddHistoryState, setModalAddHistoryState] = useState(false); // Hook para modal agregar historia clínica
+  const [modalAddBillState, setModalAddBillState] = useState(false); // Hook para modal agregar factura
+
   return (
     <div className='HeaderPatientDetail'>
       <h3>{title}</h3>
-      <img src={icon} />
+
+      {/* Validar si el ícono corresponde para actualizar datos del paciente; agregar historia clínica o agregar factura. Dependiendo del ícono se abre un modal u otro */}
+      {icon == '/src/assets/Edit.svg' ? <img src={icon} onClick={() => setModalEditState(!modalEditState)}/> : icon == '/src/assets/AddHistoryFrom.svg' ? <img src={icon} onClick={() => setModalAddHistoryState(!modalAddHistoryState)}/> : <img src={icon} onClick={() => setModalAddBillState(!modalAddBillState)}/>}
+
+      {/* --- Modal para actualizar datos del paciente --- */}
+      <Modal state={modalEditState} setState={setModalEditState} title='Actualizar Paciente'>
+        <AddPatientForm button={<EditPatientButton text='Actualizar' />} />
+      </Modal>
+
+      {/* --- Modal para agregar una historia clínica --- */}
+      <Modal
+        state={modalAddHistoryState}
+        setState={setModalAddHistoryState}
+        title='Registrar nueva historia'
+        modal='modal-container--patient-history'
+      >
+        <AddHistoryForm button={< AddHistoryButton text='Registrar'/>}/>
+      </Modal>
+
+      {/* --- Modal para agregar una factura --- */}
+      <Modal
+        state={modalAddBillState}
+        setState={setModalAddBillState}
+        title='Registrar nueva Factura'
+        modal='modal-container--patient-billing-history'
+      >
+        <AddBillForm button={<AddBillButton text='Registrar' />}/>
+      </Modal>
+    </div>
+  );
+};
+
+// --- Botones para los modales (Detalles, Historia clínica y Facturas) ---
+const EditPatientButton = ({ text }) => {
+  return (
+    <a href='#' className='patient-form__btn'>
+      {text}
+    </a>
+  );
+};
+const AddHistoryButton = ({ text }) => {
+  return (
+    <a href='#' className='patient-history-form__btn'>
+        {text}
+    </a>
+  );
+};
+const AddBillButton = ({ text }) => {
+  return (
+    <a href='#' className='billing-form__btn'>
+        {text}
+      </a>
+  );
+};
+
+// --- Columna de acciones para la tabla de Facturas ---
+const BillsActionColumn = () => {
+
+  const [ editBillState, setEditBillState] = useState (false); // Estado para editar factura
+  const [ seeBillState, setSeeBillState] = useState(false); // Estado para ver detalle de factura
+
+  return (
+    <div className='actions-column'>
+      <a
+        onClick={() => setEditBillState(!editBillState)}
+        className='action-table-btn edit-btn'>
+        <img src={editBtn} />
+      </a>
+      <a
+        onClick={() => setSeeBillState(!seeBillState)}
+        className='action-table-btn see-btn'
+      >
+        <img src={see} />
+      </a>
+
+      {/* --- Modal para ver detalles de la factura */}
+      <Modal
+        state={seeBillState}
+        setState={setSeeBillState}
+        title='Detalle de Factura'
+        modal='modal-container--patient-billing-history'
+      >
+        <AddBillForm />
+      </Modal>
+
+      {/* --- Modal para editar una factura --- */}
+      <Modal
+        state={editBillState}
+        setState={setEditBillState}
+        title='Actualizar Factura'
+        modal='modal-container--patient-billing-history'
+      >
+        <AddBillForm  button={<AddBillButton text='Actualizar'/>} />
+      </Modal>
+
+
+    </div>
+  );
+};
+// --- Columna de acciones para la tabla de Historia Clínica ---
+const HistoryActionColum = () => {
+
+  const [seeHistoryState, setSeeHistoryState] = useState(false); // Estado para ver Historia clínica
+  const [editHistoryState, setEditHistoryState] = useState(false); // Estado para actualizar Historia clínica
+
+  return (
+    <div className='actions-column'>
+      <a
+        onClick={() => setEditHistoryState(!editHistoryState)}
+        className='action-table-btn edit-btn'>
+        <img src={editBtn} />
+      </a>
+      <a
+        onClick={() => setSeeHistoryState(!seeHistoryState)}
+        className='action-table-btn see-btn'>
+        <img src={see} />
+      </a>
+
+      {/* --- Modal para ver Historia Clínica --- */}
+      <Modal
+        state={seeHistoryState}
+        setState={setSeeHistoryState}
+        title='Detalle de la Historia Clínica'
+        modal='modal-container--patient-history'
+      >
+        <AddHistoryForm />
+      </Modal>
+
+      {/* --- Modal para editar/actualizar Historia Clínica --- */}
+      <Modal
+        state={editHistoryState}
+        setState={setEditHistoryState}
+        title='Actualizar Historia Clínica'
+        modal='modal-container--patient-history'
+      >
+        <AddHistoryForm button={<AddHistoryButton text='Actualizar' />}/>
+      </Modal>
     </div>
   );
 };

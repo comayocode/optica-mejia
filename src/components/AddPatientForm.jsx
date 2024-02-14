@@ -1,6 +1,6 @@
 import { addPatientForm } from "../constants";
 
-function AddPatientForm() {
+const AddPatientForm = ({ button }) => {
   return (
     <form className='patient-form'>
       {addPatientForm.map((info) => (
@@ -17,9 +17,7 @@ function AddPatientForm() {
         </div>
       ))}
 
-      <a href='#' className='patient-form__btn'>
-        Registrar
-      </a>
+      {button}
     </form>
   );
 }
