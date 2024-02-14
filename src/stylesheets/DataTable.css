@@ -259,3 +259,11 @@ tr:nth-child(even) {
     height: 150px;
   }
 }
+
+@media (min-width: 1440px) {
+  .table__spacing--patient-history,
+  .table__spacing--patient-bills {
+    max-width: 571px;
+    margin: 20px auto;
+  }
+}

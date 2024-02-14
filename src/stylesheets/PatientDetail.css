@@ -2,6 +2,39 @@
   color: black;
   padding: 10px;
   font-family: Poppins, sans-serif;
+  overflow-x: hidden;
+}
+
+/* --- Scroll personalizado --- */
+.PatientDetail::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.PatientDetail::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.PatientDetail::-webkit-scrollbar-button:increment,
+.PatientDetail::-webkit-scrollbar-button {
+  display: none;
+}
+
+.PatientDetail::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+.PatientDetail::-webkit-scrollbar-thumb {
+  background-color: #c1bebf;
+  border-radius: 20px;
+  border: 1px solid #f1f2f3;
+}
+
+.PatientDetail::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.PatientDetail .title-container {
+  margin-top: 30px;
 }
 
 .title-patient-detail {
@@ -77,6 +110,8 @@
 
 .patient__cc-title {
   padding-right: 10px;
+  font-weight: 600;
+  color: #4C292F;
 }
 
 
@@ -146,6 +181,8 @@
   }
 
   .patient__name-title {
+    color: #4C292F;
+    font-weight: 600;
     display: block;
     padding-right: 10px;
   }
@@ -176,6 +213,7 @@
     grid-gap: 20px;
   }
 
+  /* --- Grilla para tarjetas --- */
   .patient__name {
     grid-column: 1 / 4;
     grid-row: 1 / 2;
@@ -230,6 +268,7 @@
     width: 180px;
   }
 
+  /* --- Filas de las tablas --- */
   .patient__bills .DataTable .table__spacing--patient-bills thead th,
   .patient__history .DataTable .table__spacing--patient-history thead th {
     font-size: 17px;
@@ -239,5 +278,72 @@
   .patient__bills .DataTable .table__spacing--patient-bills tbody td,
   .patient__history .DataTable .table__spacing--patient-history tbody td {
     padding: 5px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .patient {
+    padding-bottom: 20px;
+    grid-template-columns: repeat(5, 190px);
+    grid-gap: 20px;
+  }
+
+  /* --- Barra de búsqueda de tablas --- */
+  .patient__bills .DataTable .actions,
+  .patient__history .DataTable .actions {
+    left: 230px;
+  }
+
+  .patient__bills .DataTable .actions .search-input,
+  .patient__history .DataTable .actions .search-input {
+    width: 220px;
+  }
+}
+
+@media (min-width: 1440px) {
+
+  .patient {
+    grid-gap: 30px;
+  }
+
+  /* --- Tarjetas --- */
+  .patient__name,
+  .patient__cc,
+  .patient__detail,
+  .patient__history,
+  .patient__bills {
+    font-size: 20px;
+  }
+
+  .patient__name,
+  .patient__cc {
+    height: 60px;
+  }
+
+  .patient__name::before,
+  .patient__cc::before {
+    height: 60px;
+  }
+
+  /* --- Header de tarjetas --- */
+  .HeaderPatientDetail {
+    height: 60px;
+  }
+
+  .HeaderPatientDetail>h3 {
+    margin-left: 20px;
+  }
+
+  .HeaderPatientDetail>img {
+    width: 25px;
+    margin-right: 20px;
+  }
+
+  /* --- Barra de búsqueda de tablas --- */
+  .patient__bills .DataTable .actions,
+  .patient__history .DataTable .actions {
+    position: absolute;
+    top: -11px;
+    left: 250px;
   }
 }
