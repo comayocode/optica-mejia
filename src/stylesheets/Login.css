@@ -103,7 +103,7 @@
     width: 210px;
   }
 
-  .btn-wrap {
-    width: 210px;
+  .primary-btn--login {
+    padding-left: 1px;
   }
 }
