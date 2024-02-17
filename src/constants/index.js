@@ -149,13 +149,13 @@ export const adminNavLinks = [
     iconGray: patientListGray,
   },
   {
-    id: "medical-history",
+    id: "add-history",
     title: "Agregar Historial",
     icon: addHistory,
     iconGray: addHistoryGray
   },
   {
-    id: "billing",
+    id: "add-bill",
     title: "Agregar Factura",
     icon: addBill,
     iconGray: addBillGray

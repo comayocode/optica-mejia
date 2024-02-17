@@ -4,7 +4,7 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import { Login, Admin, PatientHistoryDetail } from './components';
-import { ListaPacientes, MedicalHistory, Billing, PatientHistory, PatientBilling, PatientBillingDetail, AddUser, PatientDetail } from './components';
+import { ListaPacientes, MedicalHistory, Billing, PatientHistory, PatientBilling, PatientBillingDetail, AddUser, PatientDetail, AddHistory, AddBill } from './components';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   /* Rutas de la aplicación */
@@ -22,6 +22,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='patient-billing-detail' element={<PatientBillingDetail />} />
         <Route path='users' element={<AddUser />} />
         <Route path='patient-detail' element={<PatientDetail />} />
+        <Route path='add-history' element={<AddHistory />} />
+        <Route path='add-bill' element={<AddBill />} />
       </Route>
     </Routes>
   </BrowserRouter>

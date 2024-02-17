@@ -25,6 +25,8 @@ import AddUser from "./AddUser";
 import PatientDetail from "./PatientDetail";
 import AddHistoryForm from "./AddHistoryForm";
 import AddBillForm from "./AddBillForm";
+import AddHistory from "./AddHistory";
+import AddBill from "./AddBill";
 
 export {
   Navbar,
@@ -53,4 +55,6 @@ export {
   PatientDetail,
   AddHistoryForm,
   AddBillForm,
+  AddHistory,
+  AddBill,
 }

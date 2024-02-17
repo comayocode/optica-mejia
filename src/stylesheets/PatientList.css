@@ -48,9 +48,9 @@
   width: 25px;
 }
 
-@media (max-height: 670px) {
-  .title-container {
-    margin-top: 40px;
+@media (min-width: 525px) {
+  .PatientList {
+    padding: 30px;
   }
 }
 

@@ -1,0 +1,221 @@
+.AddHistory {
+  color: black;
+  overflow-x: hidden;
+  padding: 10px;
+}
+
+.AddHistory-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.AddHistory .title-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1070px;
+  width: 100%;
+}
+
+.AddHistory .title-container hr {
+  margin-top: 15px;
+  background-color: #5E4731;
+  height: 3px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.title-history {
+  font-size: 30px;
+  width: 100%;
+}
+
+.basic-data,
+.formula,
+.prescription {
+  max-width: 1070px;
+  width: calc(100vw - 20px);
+  margin-bottom: 20px;
+  background-color: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+/* --- Header de tarjetas --- */
+.HeaderAddHistory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #4C292F;
+  background-color: #E2D6C7;
+  height: 50px;
+  border-radius: 4px 4px 0 0;
+}
+
+.HeaderAddHistory>h3 {
+  font-family: Poppins, sans-serif;
+  margin-left: 20px;
+}
+
+/* --- Formulario --- */
+.basic-data-form,
+.formula-form,
+.prescription-form {
+  padding: 20px;
+}
+
+.formula-form__eye-title {
+  font-size: 15px;
+  padding: 10px 0 10px 5px;
+}
+
+.basic-data-form__div,
+.formula-form__div,
+.prescription-form__div {
+  width: 100%;
+  font-size: 1rem;
+  position: relative;
+  --primary: #A78158;
+  margin-bottom: 10px;
+}
+
+.basic-data-form__div--diagnosis {
+  margin-bottom: 0;
+}
+
+.basic-data-form__input,
+.formula-form__input,
+.prescription-form__input {
+  all: unset;
+  width: calc(100% - 2rem);
+  color: #1e1e1e;
+  padding: 1rem;
+  border: 1px solid #9e9e9e;
+  border-radius: 5px;
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.basic-data-form__input--diagnosis,
+.prescription-form__input {
+  height: 70px;
+}
+
+.basic-data-form__label,
+.formula-form__label,
+.prescription-form__label {
+  position: absolute;
+  top: 1rem;
+  left: 10px;
+  color: #595757;
+  pointer-events: none;
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Clic sobre los inputs del formulario --- */
+.basic-data-form__input:focus,
+.formula-form__input:focus {
+  border: 1.5px solid var(--primary);
+}
+
+.basic-data-form__input:is(:focus, :valid)~.basic-data-form__label,
+.formula-form__input:is(:focus, :valid)~.formula-form__label,
+.prescription-form__input:is(:focus, :valid)~.prescription-form__label {
+  transform: translateY(-135%) scale(.88);
+  background-color: var(--bg-secondary);
+  padding-inline: .3rem;
+  color: var(--primary);
+}
+
+/* --- Botón de registro --- */
+.AddHistory__btn {
+  display: flex;
+  width: 300px;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #5C705E;
+  padding: 10px 30px;
+  color: #fff;
+  border-radius: 50px;
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: var(--paragraph-size-320);
+}
+
+@media (min-width: 525px) {
+  .AddHistory {
+    padding: 40px;
+  }
+
+  .basic-data,
+  .formula,
+  .prescription {
+    width: calc(100vw - 80px);
+  }
+}
+
+@media (min-width: 768px) {
+  .AddHistory {
+    padding-left: 127px;
+    padding-right: 40px;
+    padding-bottom: 25px;
+  }
+
+  .basic-data,
+  .formula,
+  .prescription {
+    width: calc(100vw - 167px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .basic-data-form {
+    display: grid;
+    grid-template-columns: 7;
+    grid-template-rows: 3;
+    grid-column-gap: 25px;
+    grid-row-gap: 5px;
+  }
+
+  .basic-data-form__div:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 5;
+  }
+
+  .basic-data-form__div:nth-child(2) {
+    grid-area: 1 / 5 / 2 / 8;
+  }
+
+  .basic-data-form__div:nth-child(3) {
+    grid-area: 2 / 1 / 3 / 5;
+  }
+
+  .basic-data-form__div:nth-child(4) {
+    grid-area: 2 / 5 / 3 / 8;
+  }
+
+  .basic-data-form__div:nth-child(5) {
+    grid-area: 3 / 1 / 4 / 8;
+  }
+
+  .formula-form {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 25px;
+    grid-row-gap: 5px;
+  }
+
+  .AddHistory__btn {
+    height: 46px;
+    font-size: var(--paragraph-size-1024);
+    align-items: center;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .AddHistory {
+    padding-left: 137px;
+    padding-right: 50px;
+    padding-bottom: 30px;
+  }
+}
