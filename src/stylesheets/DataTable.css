@@ -95,7 +95,8 @@
 }
 
 .table__spacing--patient-history,
-.table__spacing--patient-bills {
+.table__spacing--patient-bills,
+.table__spacing--add-user {
   margin: 0 15px;
   height: 300px;
 }
