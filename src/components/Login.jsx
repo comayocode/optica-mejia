@@ -1,13 +1,46 @@
 import '../stylesheets/Login.css';
 import { Logo, PrimaryButton } from './index';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Login() {
+  /* const requestBody = {
+    username: 'Gabriel@gmail.com',
+    password: 'Gabriel123' 
+    "firstname": "Gabriel",
+    "lastname": "Marquez",
+  }; */
+
+  const API_URL = 'http://localhost:8080/auth/';
+
+  const login = (username, password) => {
+    return axios
+      .post(API_URL + 'login', {
+        username,
+        password,
+      })
+      .then((response) => {
+        if (response.data.token) {
+          localStorage.setItem('user', JSON.stringify(response.data));
+        }
+
+        return response.data;
+      });
+  };
+
+  login('Gabriel@gmail.com', 'Gabriel123');
+
+  const logout = () => {
+    localStorage.removeItem('user');
+  };
+
+  // logout();
+
   return (
     <div className='Login'>
       <header className='login-header'>
         <Link to='/' className='login-header__link'>
-          <Logo isOpen={true}/>
+          <Logo isOpen={true} />
         </Link>
       </header>
       <div className='content-section--login'>
