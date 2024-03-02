@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import '../stylesheets/Login.css';
-import { Logo, PrimaryButton } from './index';
-import { Link } from 'react-router-dom';
+import { FormButton, Logo, PrimaryButton } from './index';
+import { Link, NavLink } from 'react-router-dom';
 import { getAuthToken, setAuthHeader } from '../services/BackendService';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 
 function Login() {
-
   // Conectar con la API y obtener la respuesta (data)
   const [username, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -95,9 +94,15 @@ function Login() {
           id='login-form'
           className='login-form'
         >
+          <div className='content-section__title'>
+            <h2>
+              Login
+            </h2>
+              <hr />
+          </div>
           <div className='inputs-login-container'>
             <div className='input-box'>
-              <span className='input-box__text--login'>Correo:</span>
+              <label className='input-box__text--login'>Correo:</label>
               <input
                 className='input-box__input--login'
                 type='text'
@@ -105,13 +110,16 @@ function Login() {
               />
             </div>
             <div className='input-box--login'>
-              <span className='input-box__text--login'>Contraseña:</span>
+              <label className='input-box__text--login'>Contraseña:</label>
               <input
                 className='input-box__input--login'
                 type='password'
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+          </div>
+          <div className="content-section__forgot-password">
+            <p className='forgot-password'>¿Olvidó su contraseña?</p>
           </div>
           <div className='btn-wrap'>
             {/* Componente de botón primario */}
@@ -122,9 +130,20 @@ function Login() {
               componentStyle='primary-btn--login'
               isTargetBlank={false}
   /> */}
+            <FormButton
+              type='submit'
+              componentStyle='primary-btn--login'
+              text='Login'
+            />
             {/* Botones temporales (borrar) */}
-            <button type='submit'>Login</button>
-            <button onClick={logout}>Logout</button>
+            {/* <button type='submit'>Login</button> */}
+            {/* <button onClick={logout}>Logout</button> */}
+          </div>
+          <div className='create-account'>
+            ¿No tienes una cuenta?
+            <NavLink className='create-account__link' to='/signup'>
+              Regístrate
+            </NavLink>
           </div>
         </form>
       </div>
