@@ -1,54 +1,54 @@
 import { Link, NavLink } from 'react-router-dom';
 import { Logo, FormButton } from '.';
-import '../stylesheets/Register.css';
+import '../stylesheets/Auth.css';
 
 const Signup = () => {
   return (
     <div className='Signup'>
-      <header className='login-header'>
-        <Link to='/' className='login-header__link'>
+      <header className='signup-header'>
+        <Link to='/' className='signup-header__link'>
           <Logo isOpen={true} />
         </Link>
       </header>
-      <div className='register-form-container'>
-        <div className='register-form-card'>
+      <div className='signup-form-container'>
+        <div className='signup-form-card'>
           <div className='register-form__title'>
             <h2>Registro</h2>
             <hr />
           </div>
           <form className='signup-form'>
-            <div className='signup-form__div'>
-              <input className='signup-form__input' type='text' required />
-              <label className='signup-form__label' htmlFor='nombres'>
+            <div className='item-form__wrapper'>
+              <input className='item-form__input' type='text' required />
+              <label className='item-form__label' htmlFor='nombres'>
                 Nombres
               </label>
             </div>
-            <div className='signup-form__div'>
-              <input className='signup-form__input' type='text' required />
-              <label className='signup-form__label' htmlFor='apellidos'>
+            <div className='item-form__wrapper'>
+              <input className='item-form__input' type='text' required />
+              <label className='item-form__label' htmlFor='apellidos'>
                 Apellidos
               </label>
             </div>
-            <div className='signup-form__div'>
+            <div className='item-form__wrapper'>
               <input
-                className='signup-form__input signup-form__input--email'
+                className='item-form__input item-form__input--email'
                 type='email'
                 placeholder=''
                 required
               />
-              <label className='signup-form__label' htmlFor='correo'>
+              <label className='item-form__label' htmlFor='correo'>
                 Correo
               </label>
             </div>
-            <div className='signup-form__div'>
-              <input className='signup-form__input' type='password' required />
-              <label className='signup-form__label' htmlFor='contrasena'>
+            <div className='item-form__wrapper'>
+              <input className='item-form__input' type='password' required />
+              <label className='item-form__label' htmlFor='contrasena'>
                 Contraseña
               </label>
             </div>
             <FormButton
               type='submit'
-              componentStyle='primary-btn--register'
+              componentStyle='signup-form__btn'
               text='Registrar'
             />
           </form>

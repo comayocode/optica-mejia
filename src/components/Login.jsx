@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import '../stylesheets/Login.css';
-import { FormButton, Logo, PrimaryButton } from './index';
+import '../stylesheets/Auth.css';
+import { FormButton, Logo } from './index';
 import { Link, NavLink } from 'react-router-dom';
 import { getAuthToken, setAuthHeader } from '../services/BackendService';
 import axios from 'axios';
@@ -86,66 +86,56 @@ function Login() {
           <Logo isOpen={true} />
         </Link>
       </header>
-      <div className='content-section--login'>
-        {/* Formulario de LOGIN */}
-        <form
-          onSubmit={onSubmit}
-          action='#'
-          id='login-form'
-          className='login-form'
-        >
-          <div className='content-section__title'>
-            <h2>
-              Login
-            </h2>
-              <hr />
+      <div className='login-form-container'>
+        <div className='login-form-card'>
+          <div className='login-form__title'>
+            <h2>Login</h2>
+            <hr />
           </div>
-          <div className='inputs-login-container'>
-            <div className='input-box'>
-              <label className='input-box__text--login'>Correo:</label>
+          <form
+            className='login-form'
+            onSubmit={onSubmit}
+            action='#'
+            id='login-form'
+          >
+            <div className='item-form__wrapper'>
               <input
-                className='input-box__input--login'
-                type='text'
+                className='item-form__input item-form__input--email'
+                type='email'
+                placeholder=''
+                required
                 onChange={(e) => setLogin(e.target.value)}
               />
+              <label className='item-form__label'>Correo</label>
             </div>
-            <div className='input-box--login'>
-              <label className='input-box__text--login'>Contraseña:</label>
+            <div className='item-form__wrapper item-form__wrapper--login-password'>
               <input
-                className='input-box__input--login'
+                className='item-form__input'
                 type='password'
+                required
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <label className='item-form__label'>Contraseña</label>
             </div>
-          </div>
-          <div className="content-section__forgot-password">
-            <p className='forgot-password'>¿Olvidó su contraseña?</p>
-          </div>
-          <div className='btn-wrap'>
-            {/* Componente de botón primario */}
-            {/* <PrimaryButton
-              type="document.getElementById('login-form').submit()"
-              text='Ingresar'
-              link='/admin/patients'
-              componentStyle='primary-btn--login'
-              isTargetBlank={false}
-  /> */}
+            <NavLink
+              className='login-form__forgot-password'
+              to='/forgot-password'
+            >
+              <p>¿Olvidó su contraseña?</p>
+            </NavLink>
             <FormButton
               type='submit'
-              componentStyle='primary-btn--login'
+              componentStyle='login-form__btn'
               text='Login'
             />
-            {/* Botones temporales (borrar) */}
-            {/* <button type='submit'>Login</button> */}
-            {/* <button onClick={logout}>Logout</button> */}
-          </div>
-          <div className='create-account'>
+          </form>
+          <div className='goto-signup'>
             ¿No tienes una cuenta?
-            <NavLink className='create-account__link' to='/signup'>
+            <NavLink className='goto-signup__link' to='/signup'>
               Regístrate
             </NavLink>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
