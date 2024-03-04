@@ -27,6 +27,9 @@ import AddHistoryForm from "./AddHistoryForm";
 import AddBillForm from "./AddBillForm";
 import AddHistory from "./AddHistory";
 import AddBill from "./AddBill";
+import Signup from "./Register";
+import ProtectedRoute from "./ProtectedRoute";
+import FormButton from "./FormButton";
 
 export {
   Navbar,
@@ -57,4 +60,7 @@ export {
   AddBillForm,
   AddHistory,
   AddBill,
+  Signup,
+  ProtectedRoute,
+  FormButton,
 }

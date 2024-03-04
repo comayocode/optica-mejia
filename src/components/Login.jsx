@@ -1,37 +1,57 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '../stylesheets/Auth.css';
 import { FormButton, Logo } from './index';
-import { Link, NavLink } from 'react-router-dom';
-import { getAuthToken, setAuthHeader } from '../services/BackendService';
+import { Link, NavLink, Navigate, useNavigate } from 'react-router-dom';
+import { setAuthHeader } from '../services/BackendService';
 import axios from 'axios';
-import { jwtDecode } from 'jwt-decode';
+import { useAuth } from '../Auth/AuthProvider';
+import { API_URL } from '../Auth/Constants';
 
 function Login() {
-  // Conectar con la API y obtener la respuesta (data)
-  const [username, setLogin] = useState('');
-  const [password, setPassword] = useState('');
+  /* TODO:
+   ** - Mostrar X vistas con X roles
+   */
+  /* !isAuthenticated
+    ? console.log('No autenticado, ve a login')
+    : isAuthenticated && role === 'USUARIO'
+    ? console.log(role, 'Autenticado, continua')
+    : isAuthenticated && role === 'ADMINISTRADOR'
+    ? console.log(role, 'Autenticado, continua')
+    : ''; */
 
-  const API_URL = 'http://localhost:8080/auth/';
+  // --- Guardar y setear valores del formulario ---
+  const [username, setUsername] = useState(''); // correo del formulario
+  const [password, setPassword] = useState(''); // contraseña del formulario
+  const [message, setMessage] = useState(''); // mensajes en caso de error con la conexión
+  const goTo = useNavigate(); // navegar entre rutas
 
-  const onSubmit = (e) => {
+  /* --- Redirigir a ADMIN si el usuario está autenticado (evitar que entre a login o register) --- */
+  const auth = useAuth();
+  if (auth.isAuthenticated) {
+    return <Navigate to='/admin' />;
+  }
+
+  /* --- Componente para renderizar mensaje de la petición */
+  const ResponseMessage = () => {
+    return <div className={`response-message`}>{message}</div>;
+  };
+
+  /* --- Conexión --- */
+  const handleSubmit = (e) => {
     e.preventDefault();
-    return (
+    try {
       axios
-        .post(API_URL + 'login', {
+        .post(`${API_URL}/auth/login`, {
           username,
           password,
         })
-        /* .then((response) => {
-        if (response.data.token) {
-          let token = response.data.token;
-          console.log(`token: ${token}`);
-          localStorage.setItem('user', JSON.stringify(response.data));
-        }
-
-        return response.data;
-      }); */
         .then((response) => {
-          if (response.status == 200) {
+          if (response.status === 200) {
+            setMessage('');
+            if (response.data.token !== null) {
+              auth.saveUser(response.data); // enviar data de respuesta a AuthProvider
+              goTo('/admin/users'); // si token es válido ir a admin
+            }
             return response.data;
           } else {
             return null;
@@ -39,44 +59,26 @@ function Login() {
         })
         .then((data) => {
           if (data !== null) {
-            setAuthHeader(data['token']);
+            setAuthHeader(data['token']); // almacenar token
           } else {
             setAuthHeader(null);
           }
         })
-    );
-  };
-
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [role, setRole] = useState('USUARIO');
-
-  useEffect(() => {
-    let token = getAuthToken();
-    if (token !== null) {
-      setIsAuthenticated(true);
-      const decoded = jwtDecode(token); // decodificar token
-      const role = decoded.role; // obtener roles
-      role.forEach((role) => {
-        var userRole = role.authority; // obtener user authority
-        console.log(userRole);
-        setRole(userRole); // Pasar rol extraido
-      });
-    } else {
-      setIsAuthenticated(false);
+        .catch((error) => {
+          if (error.response) {
+            console.error('Código de estado', error.response.status);
+            if (error.response.status === 403) {
+              setMessage('Credenciales inválidas');
+            }
+          } else if (error.request) {
+            setMessage('No se recibió la respuesta del servidor');
+          } else {
+            setMessage('Error al configurar la petición', error.message);
+          }
+        });
+    } catch (error) {
+      console.log(error);
     }
-  }, []);
-
-  // Validar Rol o authenticación
-  !isAuthenticated
-    ? console.log('No autenticado, ve a login')
-    : isAuthenticated && role === 'USUARIO'
-    ? console.log(role, 'Autenticado, continua')
-    : isAuthenticated && role === 'ADMINISTRADOR'
-    ? console.log(role, 'Autenticado, continua')
-    : '';
-
-  const logout = () => {
-    localStorage.removeItem('token');
   };
 
   return (
@@ -92,9 +94,10 @@ function Login() {
             <h2>Login</h2>
             <hr />
           </div>
+          {message && <ResponseMessage />}
           <form
             className='login-form'
-            onSubmit={onSubmit}
+            onSubmit={handleSubmit}
             action='#'
             id='login-form'
           >
@@ -103,8 +106,9 @@ function Login() {
                 className='item-form__input item-form__input--email'
                 type='email'
                 placeholder=''
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
-                onChange={(e) => setLogin(e.target.value)}
               />
               <label className='item-form__label'>Correo</label>
             </div>
@@ -112,8 +116,9 @@ function Login() {
               <input
                 className='item-form__input'
                 type='password'
-                required
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
               <label className='item-form__label'>Contraseña</label>
             </div>

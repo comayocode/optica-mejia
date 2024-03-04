@@ -8,6 +8,7 @@ import { adminNavLinks, user } from '../constants';
 import { Logo, PrimaryButton } from './index';
 import { NavLink } from 'react-router-dom';
 import { LuLogOut } from 'react-icons/lu';
+import { useAuth } from '../Auth/AuthProvider';
 
 let screenWidth = screen.width;
 
@@ -95,6 +96,13 @@ const HeaderAdmin = ({ toggleP, setToggleP }) => {
 
 // Menú latera en computadores
 const DesktopAside = ({ toggle, isOpen, modalState, setModalState }) => {
+  // cerrar sesion
+  const auth = useAuth();
+
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    auth.signOut();
+  };
   return (
     <aside
       className={`menu-card`}
@@ -186,8 +194,12 @@ const DesktopAside = ({ toggle, isOpen, modalState, setModalState }) => {
               </div>
             ))}
           </div>
-          <div className='logout' style={{ display: isOpen ? 'flex' : 'none' }}>
-            <NavLink to='/login'>
+          <div
+            className='logout'
+            style={{ display: isOpen ? 'flex' : 'none' }}
+            onClick={handleSignOut} // cerrar sesion
+          >
+            <NavLink>
               <span className='logout-icon'>
                 <LuLogOut />
               </span>
@@ -201,12 +213,18 @@ const DesktopAside = ({ toggle, isOpen, modalState, setModalState }) => {
 
 // Menú latera en móviles
 const MobileAside = ({ isOpen, setIsOpen, modalState, setModalState }) => {
+  const auth = useAuth();
+
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    auth.signOut;
+  };
 
   // Abrir el modal para agregar paciente y cerrar automáticamente el menú
   const toggleMenuModal = () => {
     setIsOpen(!isOpen); // cambiar estado del menú abierto a cerrado y visceversa
     setModalState(!modalState); // cambiar estado del modal abierto a cerrado y visceversa
-  }
+  };
 
   return (
     <aside className={`${isOpen ? 'active' : 'flex'} menu-card`}>
@@ -215,9 +233,7 @@ const MobileAside = ({ isOpen, setIsOpen, modalState, setModalState }) => {
           <div className='admin-nav__logo'>
             <Logo isOpen={true} />
           </div>
-          <div
-            onClick={ toggleMenuModal}
-          >
+          <div onClick={toggleMenuModal}>
             <PrimaryButton
               text='Agregar Paciente'
               icon={addPatient}
@@ -270,7 +286,7 @@ const MobileAside = ({ isOpen, setIsOpen, modalState, setModalState }) => {
           </div>
           <div className='logout'>
             <NavLink to='/login'>
-              <span className='logout-icon'>
+              <span className='logout-icon' onClick={handleSignOut}>
                 <LuLogOut />
               </span>
             </NavLink>
