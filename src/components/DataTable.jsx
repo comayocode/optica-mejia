@@ -13,6 +13,8 @@ import { search, firstPage, prevPage, nextPage, lastPage } from '../assets';
 const DataTable = ({ data, columns, boton, widthVariant, state, setState }) => {
   const [sorting, setSorting] = useState([]); /* Hook para ordenar los datos */
   const [filtering, setfiltering] = useState(''); /* Hook para filtrar los datos */
+  const [rowSelection, setRowSelection] = useState({});
+  const [selectedDataRow, setSelectedDataRow] = useState({});
 
   const table = useReactTable({
     data: data, 
@@ -24,9 +26,12 @@ const DataTable = ({ data, columns, boton, widthVariant, state, setState }) => {
     state: {
       sorting,
       globalFilter: filtering,
+      rowSelection: rowSelection,
     },
     onSortingChange: setSorting,
     onGlobalFilterChange: setfiltering,
+    onRowSelectionChange: setRowSelection,
+    enableRowSelection: true,
   });
 
   return (
@@ -86,7 +91,7 @@ const DataTable = ({ data, columns, boton, widthVariant, state, setState }) => {
               <tbody>
                 {/* Se repite el proceso de la misma manera que los encabezado */}
                 {table.getRowModel().rows.map((row) => ( /* Se recorre cada fila de datos */
-                  <tr key={row.id}>
+                  <tr key={row.id} onClick={row.getToggleSelectedHandler()}> {/* toggle selección de fila, muestra los datos seleccionados en la línea (189) */}
                     {row.getVisibleCells().map((cell) => ( /* Se recorre la fila obteniendo cada dato (celda) */
                       <td key={cell.id}>
                         {flexRender(
@@ -126,13 +131,21 @@ const DataTable = ({ data, columns, boton, widthVariant, state, setState }) => {
             </button>
             <button
               className='pagination__last-page'
-              onClick={() => table.setPageIndex(table.getPageCount() - 1)} /* Ir a la última página */
+              onClick={() =>
+                table.setPageIndex(table.getPageCount() - 1)
+              } /* Ir a la última página */
             >
               Last <img src={lastPage} />
             </button>
           </div>
         </div>
+        <div>
+          {table.getSelectedRowModel().flatRows.map((element) => {
+            console.log(element.original);
+          })}
+        </div>
       </div>
+      {console.log(selectedDataRow)}
     </>
   );
 };
