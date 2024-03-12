@@ -10,14 +10,13 @@ import '../stylesheets/DataTable.css';
 import { useState } from 'react';
 import { search, firstPage, prevPage, nextPage, lastPage } from '../assets';
 
-const DataTable = ({ data, columns, boton, widthVariant, state, setState }) => {
+const DataTable = ({ data, columns, boton, widthVariant, state, setState, setPatientSelected /* pasar paciente de fila seleccionada  */, }) => {
   const [sorting, setSorting] = useState([]); /* Hook para ordenar los datos */
   const [filtering, setfiltering] = useState(''); /* Hook para filtrar los datos */
   const [rowSelection, setRowSelection] = useState({});
-  const [selectedDataRow, setSelectedDataRow] = useState({});
 
   const table = useReactTable({
-    data: data, 
+    data: data,
     columns: columns,
     getCoreRowModel: getCoreRowModel(), /* Obtener las filas de los datos */
     getPaginationRowModel: getPaginationRowModel(), /* Obtener la paginación */
@@ -91,9 +90,9 @@ const DataTable = ({ data, columns, boton, widthVariant, state, setState }) => {
               <tbody>
                 {/* Se repite el proceso de la misma manera que los encabezado */}
                 {table.getRowModel().rows.map((row) => ( /* Se recorre cada fila de datos */
-                  <tr key={row.id} onClick={row.getToggleSelectedHandler()}> {/* toggle selección de fila, muestra los datos seleccionados en la línea (189) */}
+                  <tr key={row.id}> {/* toggle selección de fila, muestra los datos seleccionados en la línea (189) */}
                     {row.getVisibleCells().map((cell) => ( /* Se recorre la fila obteniendo cada dato (celda) */
-                      <td key={cell.id}>
+                      <td key={cell.id} onClick={(e) => setPatientSelected(row.original)} >
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext()
@@ -139,13 +138,7 @@ const DataTable = ({ data, columns, boton, widthVariant, state, setState }) => {
             </button>
           </div>
         </div>
-        <div>
-          {table.getSelectedRowModel().flatRows.map((element) => {
-            console.log(element.original);
-          })}
-        </div>
       </div>
-      {console.log(selectedDataRow)}
     </>
   );
 };

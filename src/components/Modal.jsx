@@ -12,7 +12,7 @@ const Modal = ({ children, state, setState, title, modal }) => {
             <div className='modal-header'>
               <h3 className='modal-header__title'>{title}</h3>
             </div>
-            <a href='#' className='modal-container__close-btn' onClick={() => setState(false)}> {/* Cerrar el modal y cambiar su estado */}
+            <a className='modal-container__close-btn' onClick={() => setState(false)}> {/* Cerrar el modal y cambiar su estado */}
               <img
                 className='modal-container__close-img'
                 src={closeModal}

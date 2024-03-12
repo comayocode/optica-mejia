@@ -18,7 +18,8 @@ patientsList.map((data) => {
   listPatients.push(data); /* Enviar datos al arreglo vacio */
 });
 
-/* Columnas o headers para pasarle a la tabla */
+var patientToDetail = {}; // paciente seleccionado a pasarlo a patient detail por medio del state de <Link />
+
 const columns = [
   {
     header: 'Id',
@@ -49,7 +50,13 @@ const columns = [
     header: 'Acción',
     cell: () => (
       <div className='actions-column'>
-        <Link to='../patient-detail' className='action-table-btn see-btn'>
+        <Link
+          className='action-table-btn see-btn'
+          to={{
+            pathname: '../patient-detail',
+          }}
+          state={{ patientToDetail }} // enviar data de la columna seleccionada
+        >
           <img src={see} />
         </Link>
       </div>
@@ -60,6 +67,15 @@ const columns = [
 const PatientList = () => {
   const [modalState, setModalState] =
     useState(false); /* Estado del modal "abierto" o "cerrado" */
+
+  const [patientSelected, setPatientSelected] = useState({}); // paciente seleccionado de la tabla
+
+  // traer paciente de fila seleccionada de DataTable
+  const onRowClick = (row) => {
+    setPatientSelected(row);
+  };
+
+  patientToDetail = patientSelected; // enviar a variable que guarda fue del componente
 
   const [patientsData, setPatientsData] = useState([]);
   const [patientsDataToDetail, setPatientsDataToDetail] = useState([]);
@@ -106,6 +122,7 @@ const PatientList = () => {
         widthVariant='table__spacing--patients'
         state={modalState}
         setState={setModalState}
+        setPatientSelected={onRowClick} // pasar como prop función que recibe fila seleccionada
       />
 
       {/* Modal o ventana flotante para registrar un nuevo paciente */}

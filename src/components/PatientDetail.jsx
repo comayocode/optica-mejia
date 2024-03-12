@@ -7,6 +7,7 @@ import patientMedicalHistory from '../data/patient_medical_history.json';
 import patientBilling from '../data/patient_billing.json';
 import { createColumnHelper } from '@tanstack/react-table';
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const columnHelper = createColumnHelper();
 
@@ -68,46 +69,51 @@ const BillingColumns = [
   }),
 ];
 
-/* --- Detalles del paciente (información temporal) --- */
-const patient = [
-  {
-    id: 'edad',
-    texto: 'EDAD',
-    detail: 25,
-  },
-  {
-    id: 'direccion',
-    texto: 'DIRECCIÓN',
-    detail: 'Carrera XX#X-XX',
-  },
-  {
-    id: 'celularPersonal',
-    texto: 'CELULAR PERSONAL',
-    detail: '322 310 1010',
-  },
-  {
-    id: 'celularFamiliar',
-    texto: 'CELULAR FAMILIAR',
-    detail: '322 310 2020',
-  },
-  {
-    id: 'ocupacion',
-    texto: 'OCUPACIÓN',
-    detail: 'Celadora',
-  },
-  {
-    id: 'eps',
-    texto: 'EPS',
-    detail: 'SaludCoop',
-  },
-  {
-    id: 'patologias',
-    texto: 'PATOLOGÍAS',
-    detail: 'N/A',
-  },
-];
-
 const PatientDetail = () => {
+  const location = useLocation();
+  const patientData = location.state.patientToDetail; // obtener pacinte seleccionado
+  console.log(location.state);
+  console.log({ patientData });
+
+  /* --- Detalles del paciente obtenido --- */
+  const patient = [
+    {
+      id: 'edad',
+      texto: 'EDAD',
+      detail: patientData.age,
+    },
+    {
+      id: 'direccion',
+      texto: 'DIRECCIÓN',
+      detail: patientData.address,
+    },
+    {
+      id: 'celularPersonal',
+      texto: 'CELULAR PERSONAL',
+      detail: patientData.personal_cellphone,
+    },
+    {
+      id: 'celularFamiliar',
+      texto: 'CELULAR FAMILIAR',
+      detail: patientData.family_cellphone,
+    },
+    {
+      id: 'ocupacion',
+      texto: 'OCUPACIÓN',
+      detail: patientData.occupation,
+    },
+    {
+      id: 'eps',
+      texto: 'EPS',
+      detail: patientData.eps,
+    },
+    {
+      id: 'patologias',
+      texto: 'PATOLOGÍAS',
+      detail: patientData.pathologies,
+    },
+  ];
+
   return (
     <div className='PatientDetail'>
       <div className='title-container'>
@@ -117,13 +123,11 @@ const PatientDetail = () => {
       <div className='patient'>
         <div className='patient__name'>
           <span className='patient__name-title'>Nombre:</span>
-          <span className='patient__name-patient'>
-            Angela María Castañeda Cifuentes
-          </span>
+          <span className='patient__name-patient'>{patientData.name}</span>
         </div>
         <div className='patient__cc'>
           <span className='patient__cc-title'>Cédula:</span>
-          <span className='patient__cc-patient'>45857123</span>
+          <span className='patient__cc-patient'>{patientData.cc}</span>
         </div>
 
         <div className='patient__detail'>
@@ -139,18 +143,18 @@ const PatientDetail = () => {
         </div>
 
         <div className='patient__history'>
-          <HeaderPatientDetail title='Historial Clínico' icon={addHistoryFrom} />
+          <HeaderPatientDetail title='Historial Clínico' icon={addHistoryFrom} data={patientData} />
           <DataTable
-            data={patientMedicalHistory}
+            data={patientData.clinic_history} // información de historial de paciente seleccionado
             columns={historyColumns}
             widthVariant='table__spacing--patient-history'
           />
         </div>
 
         <div className='patient__bills'>
-          <HeaderPatientDetail title='Facturas' icon={addBillForm} />
+          <HeaderPatientDetail title='Facturas' icon={addBillForm} data={patientData} />
           <DataTable
-            data={patientBillingArr}
+            data={patientData.bill} // información de facturas de paciente seleccionado
             columns={BillingColumns}
             widthVariant='table__spacing--patient-bills'
           />
@@ -162,7 +166,6 @@ const PatientDetail = () => {
 
 // --- Header de "tarjetas" ---
 const HeaderPatientDetail = ({ title, icon }) => {
-
   const [modalEditState, setModalEditState] = useState(false); // Hook para modal de actualizar paciente
   const [modalAddHistoryState, setModalAddHistoryState] = useState(false); // Hook para modal agregar historia clínica
   const [modalAddBillState, setModalAddBillState] = useState(false); // Hook para modal agregar factura
@@ -205,29 +208,28 @@ const HeaderPatientDetail = ({ title, icon }) => {
 // --- Botones para los modales (Detalles, Historia clínica y Facturas) ---
 const EditPatientButton = ({ text }) => {
   return (
-    <a href='#' className='patient-form__btn'>
+    <a className='patient-form__btn'>
       {text}
     </a>
   );
 };
 const AddHistoryButton = ({ text }) => {
   return (
-    <a href='#' className='patient-history-form__btn'>
+    <a className='patient-history-form__btn'>
         {text}
     </a>
   );
 };
 const AddBillButton = ({ text }) => {
   return (
-    <a href='#' className='billing-form__btn'>
-        {text}
-      </a>
+    <a className='billing-form__btn'>
+      {text}
+    </a>
   );
 };
 
 // --- Columna de acciones para la tabla de Facturas ---
 const BillsActionColumn = () => {
-
   const [ editBillState, setEditBillState] = useState (false); // Estado para editar factura
   const [ seeBillState, setSeeBillState] = useState(false); // Estado para ver detalle de factura
 
@@ -264,14 +266,11 @@ const BillsActionColumn = () => {
       >
         <AddBillForm  button={<AddBillButton text='Actualizar'/>} />
       </Modal>
-
-
     </div>
   );
 };
 // --- Columna de acciones para la tabla de Historia Clínica ---
 const HistoryActionColum = () => {
-
   const [seeHistoryState, setSeeHistoryState] = useState(false); // Estado para ver Historia clínica
   const [editHistoryState, setEditHistoryState] = useState(false); // Estado para actualizar Historia clínica
 
