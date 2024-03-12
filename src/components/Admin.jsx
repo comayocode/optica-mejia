@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Modal, AddPatientForm } from './index';
 
 import { adminNavLinks, user } from '../constants';
-import { Logo, PrimaryButton } from './index';
+import { Logo, PrimaryButton, FormButton } from './index';
 import { NavLink } from 'react-router-dom';
 import { LuLogOut } from 'react-icons/lu';
 import { useAuth } from '../Auth/AuthProvider';
@@ -48,7 +48,16 @@ const Admin = () => {
         setState={setModalState}
         title='Registrar nuevo paciente'
       >
-        <AddPatientForm />
+        <AddPatientForm
+          setState={setModalState}
+          button={
+            <FormButton
+              type='submit'
+              componentStyle='patient-form__btn'
+              text='Registrar'
+            />
+          }
+        />
       </Modal>
     </div>
   );
@@ -123,6 +132,7 @@ const DesktopAside = ({ toggle, isOpen, modalState, setModalState }) => {
               onClick={() => setModalState(!modalState)} // abrir el modal
             >
               <PrimaryButton
+                link='#'
                 text='Agregar Paciente'
                 icon={addPatient}
                 componentStyle='primary-btn--navbar-open'
@@ -134,6 +144,7 @@ const DesktopAside = ({ toggle, isOpen, modalState, setModalState }) => {
               onClick={() => setModalState(!modalState)} // abrir el modal
             >
               <PrimaryButton
+                link='#'
                 icon={addPatient}
                 componentStyle='primary-btn--navbar-close'
               />

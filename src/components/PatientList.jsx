@@ -1,5 +1,5 @@
 import '../stylesheets/PatientList.css';
-import { DataTable, ButtonTable, Modal, AddPatientForm } from '.';
+import { DataTable, ButtonTable, Modal, AddPatientForm, FormButton } from '.';
 import patientsList from '../data/patients.json';
 import { createColumnHelper } from '@tanstack/react-table';
 import { see } from '../assets';
@@ -131,7 +131,16 @@ const PatientList = () => {
         setState={setModalState}
         title='Registrar nuevo paciente'
       >
-        <AddPatientForm />
+        <AddPatientForm
+          setState={setModalState}
+          button={
+            <FormButton
+              type='submit'
+              componentStyle='patient-form__btn'
+              text='Registrar'
+            />
+          }
+        />
       </Modal>
     </div>
   );

@@ -182,37 +182,37 @@ export const user = [
 /* Datos del Formulario para agregar paciente */
 export const addPatientForm = [
   {
-    id: "cedula",
+    id: "cc",
     htmlFor: "cedula",
     text: "Cédula"
   },
   {
-    id: "nombres",
+    id: "name",
     htmlFor: "nombres",
     text: "Nombres"
   },
   {
-    id: "edad",
+    id: "age",
     htmlFor: "edad",
     text: "Edad"
   },
   {
-    id: "direccion",
+    id: "address",
     htmlFor: "direccion",
     text: "Dirección"
   },
   {
-    id: "celular-personal",
+    id: "personal_cellphone",
     htmlFor: "celular-personal",
     text: "Celular Personal"
   },
   {
-    id: "celular-familiar",
+    id: "family_cellphone",
     htmlFor: "celular-familiar",
     text: "Celular Familiar"
   },
   {
-    id: "ocupacion",
+    id: "occupation",
     htmlFor: "ocupacion",
     text: "Ocupación"
   },
@@ -222,7 +222,7 @@ export const addPatientForm = [
     text: "EPS"
   },
   {
-    id: "patologias",
+    id: "pathologies",
     htmlFor: "patologias",
     text: "Patologías"
   },
