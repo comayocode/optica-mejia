@@ -1,7 +1,7 @@
 import { Link, NavLink, Navigate, useNavigate } from 'react-router-dom';
 import { Logo, FormButton } from '.';
 import '../stylesheets/Auth.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../Auth/AuthProvider';
 import { setAuthHeader } from '../services/BackendService';
 import { API_URL } from '../Auth/Constants';
@@ -13,6 +13,7 @@ const Signup = () => {
   const [lastname, setLastName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
   // mensaje de errores con la conexión
   const [message, setMessage] = useState('');
   const goTo = useNavigate(); // navegar entre rutas
@@ -25,7 +26,9 @@ const Signup = () => {
   /* --- Conexión simular a login --- */
   const handleSubmit = (e) => {
     e.preventDefault();
-    return axios
+    // si contraseñas coinciden, se envia la petición, de lo contrario, un mensaje de error
+    if (passwordConfirm === password) {
+      return axios
       .post(`${API_URL}/auth/register`, {
         firstname,
         lastname,
@@ -60,6 +63,9 @@ const Signup = () => {
           setMessage('Error al configurar la petición', error.message);
         }
       });
+    } else {
+      setMessage('Contraseñas no coinciden');
+    }
   };
 
   // --- Redirigir a ADMIN si el usuario está autenticado (evitar que entre a login o register) ---
@@ -130,6 +136,18 @@ const Signup = () => {
               />
               <label className='item-form__label' htmlFor='contrasena'>
                 Contraseña
+              </label>
+            </div>
+            <div className='item-form__wrapper'>
+              <input
+                className='item-form__input'
+                type='password'
+                value={passwordConfirm}
+                onChange={(e) => setPasswordConfirm(e.target.value)}
+                required
+              />
+              <label className='item-form__label' htmlFor='contrasena'>
+                Repetir Contraseña
               </label>
             </div>
             <FormButton
