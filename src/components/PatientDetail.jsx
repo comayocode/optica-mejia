@@ -2,7 +2,7 @@ import '../stylesheets/PatientDetail.css';
 import { editBtn, addHistoryFrom, addBillForm, see } from '../assets';
 
 /* --- Historial clínico --- */
-import { DataTable, Modal, AddHistoryForm, AddBillForm, AddPatientForm } from '.';
+import { DataTable, Modal, AddHistoryForm, AddBillForm, AddPatientForm, FormButton } from '.';
 import patientMedicalHistory from '../data/patient_medical_history.json';
 import patientBilling from '../data/patient_billing.json';
 import { createColumnHelper } from '@tanstack/react-table';
@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const columnHelper = createColumnHelper();
+let patientId;
 
 /* --- HISTORIA CLÍNICA --- */
 /* ------------------------ */
@@ -114,6 +115,9 @@ const PatientDetail = () => {
     },
   ];
 
+  // obtener id del paciente para pasarlo al formulario de historias y ponerlo en la API URL
+  patientId = patientData.id;
+
   return (
     <div className='PatientDetail'>
       <div className='title-container'>
@@ -189,7 +193,16 @@ const HeaderPatientDetail = ({ title, icon }) => {
         title='Registrar nueva historia'
         modal='modal-container--patient-history'
       >
-        <AddHistoryForm button={< AddHistoryButton text='Registrar'/>}/>
+        <AddHistoryForm
+          patientId={patientId}
+          button={
+            <FormButton
+              type='submit'
+              componentStyle='patient-history-form__btn'
+              text='Registrar'
+            />
+          }
+        />
       </Modal>
 
       {/* --- Modal para agregar una factura --- */}
