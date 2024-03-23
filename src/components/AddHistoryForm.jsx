@@ -101,6 +101,7 @@ const AddHistoryForm = ({ patientId, button }) => {
     } catch (error) {
       console.log(error);
     }
+  };
 
   return (
     <form className='patient-history-form' onSubmit={handleHistorySubmit}>
