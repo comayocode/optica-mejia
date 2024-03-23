@@ -1,63 +1,112 @@
-import { useEffect, useState } from 'react';
 import { getAuthToken } from '../services/BackendService';
 import axios from 'axios';
 import { API_URL } from '../Auth/Constants';
 
 const AddHistoryForm = ({ patientId, button }) => {
-  // const [form, setForm] = useState({});
   let token = getAuthToken();
-  console.log({token});
-  /* const [code, setCode] = useState();
-  const [observations, setObservations] = useState();
-  const [prescription, setPrescription] = useState(); */
-  /*  */
-  /* useEffect(() => {
-    setCode(2);
-    setObservations('Prueba desde codigo de frontend');
-    setPrescription('Prueba desde codigo de frontend');
-  }, []); */
 
-  // console.warn({ code, observations, prescription });
+  const historyForm = {
+    code: 2,
+    observations: 'Prueba onbservaciones desde codigo frontend',
+    prescription: 'Prueba prescripcion desde codigo frontend',
+  };
 
-  // obtener valores de formulario y guardarlos
-  /* const handleChange = (id, event) => {
-    const newForm = { ...form, [id]: event.target.value };
-    setForm(newForm);
-  }; */
+  const rightEyeForm = {
+    sphere: '0.3',
+    cylinder: '1.7',
+    axis: '1',
+    addition: '0.7',
+    pupilarydistance: '0.9',
+  };
 
-  const form = {
-    "code": 2,
-    "observations": "Prueba onbservaciones desde codigo frontend",
-    "prescription": "Prueba prescripcion desde codigo frontend"
-  }
+  const leftEyeForm = {
+    sphere: '0.4',
+    cylinder: '1.1',
+    axis: '1.9',
+    addition: '0.7',
+    pupilarydistance: '0.8',
+  };
 
-  const handleSubmit = (e) => {
+  const handleHistorySubmit = (e) => {
     e.preventDefault();
     try {
       axios
         .post(
           `
           ${API_URL}/clinic-history/${patientId}`,
-          form,
+          historyForm,
           { headers: { Authorization: `Bearer ${token}` } }
         )
         .then((response) => {
           if (response.status == 200) {
-            return response.data;
+            try {
+              axios
+                .post(
+                  `
+                  ${API_URL}/formula/${response.data.id}`,
+                  rightEyeForm,
+                  { headers: { Authorization: `Bearer ${token}` } }
+                )
+                .then((response) => {
+                  if (response.status == 200) {
+                    try {
+                      axios
+                        .post(
+                          `
+                          ${API_URL}/left-eye/${response.data.id}`,
+                          leftEyeForm,
+                          { headers: { Authorization: `Bearer ${token}` } }
+                        )
+                        .then((response) => {
+                          if (response.status == 200) {
+                            return response.data; // left-eye response
+                          } else {
+                            return console.log(`${API_URL}/left-eye/${response.data.id}`);
+                          }
+                        });
+                    } catch (error) {
+                      console.log(error);
+                    }
+                    try {
+                      axios
+                        .post(
+                          `
+                          ${API_URL}/right-eye/${response.data.id}`,
+                          leftEyeForm,
+                          { headers: { Authorization: `Bearer ${token}` } }
+                        )
+                        .then((response) => {
+                          if (response.status == 200) {
+                            return response.data; // right-eye response
+                          } else {
+                            return console.log(`${API_URL}/right-eye/${response.data.id}`);
+                          }
+                        });
+                    } catch (error) {
+                      console.log(error);
+                    }
+                    return response.data; // formula response
+                  } else {
+                    return console.log(`${API_URL}/formula/${response.data.id}`);
+                  }
+                });
+            } catch (error) {
+              console.log(error);
+            }
+            return response.data; // clinic history response
           } else {
-            return console.log(`${API_URL}/patient/${patientId}`);
+            return console.log(`${API_URL}/clinic-history/${patientId}`);
           }
         });
     } catch (error) {
       console.log(error);
     }
-  };
 
   return (
-    <form className='patient-history-form' onSubmit={handleSubmit}>
+    <form className='patient-history-form' onSubmit={handleHistorySubmit}>
       <div className='patient-history-form__first-group'>
         <div className='patient-history-form__div'>
-          <input className='patient-history-form__input' type='text'  />
+          <input className='patient-history-form__input' type='text' />
           <label className='patient-history-form__label' htmlFor='cedula'>
             Fecha
           </label>
@@ -68,7 +117,6 @@ const AddHistoryForm = ({ patientId, button }) => {
             type='text'
             /* value={code}
             onChange={(e) => setCode(e.target.value)} */
-            
           />
           <label className='patient-history-form__label' htmlFor='cedula'>
             No. Historia
@@ -82,7 +130,6 @@ const AddHistoryForm = ({ patientId, button }) => {
             className='patient-history-form__input patient-history-form__input--diagnosis'
             /* value={observations}
             onChange={(e) => setObservations(e.target.value)} */
-            
           />
           <label
             className=' patient-history-form__label patient-history-form__label--diagnosis'
@@ -98,11 +145,7 @@ const AddHistoryForm = ({ patientId, button }) => {
         <div className='patient-history-form__formula'>
           <h5 className='patient-history-form__eye-title'>Vista Izquierda</h5>
           <div className='patient-history-form__div'>
-            <input
-              className='patient-history-form__input'
-              type='text'
-              
-            />
+            <input className='patient-history-form__input' type='text' />
             <label
               className='patient-history-form__label patient-history-form__label--eye'
               htmlFor='cedula'
@@ -111,11 +154,7 @@ const AddHistoryForm = ({ patientId, button }) => {
             </label>
           </div>
           <div className='patient-history-form__div'>
-            <input
-              className='patient-history-form__input'
-              type='text'
-              
-            />
+            <input className='patient-history-form__input' type='text' />
             <label
               className='patient-history-form__label patient-history-form__label--eye'
               htmlFor='cedula'
@@ -124,11 +163,7 @@ const AddHistoryForm = ({ patientId, button }) => {
             </label>
           </div>
           <div className='patient-history-form__div'>
-            <input
-              className='patient-history-form__input'
-              type='text'
-              
-            />
+            <input className='patient-history-form__input' type='text' />
             <label
               className='patient-history-form__label patient-history-form__label--eye'
               htmlFor='cedula'
@@ -137,11 +172,7 @@ const AddHistoryForm = ({ patientId, button }) => {
             </label>
           </div>
           <div className='patient-history-form__div'>
-            <input
-              className='patient-history-form__input'
-              type='text'
-              
-            />
+            <input className='patient-history-form__input' type='text' />
             <label
               className='patient-history-form__label patient-history-form__label--eye'
               htmlFor='cedula'
@@ -150,11 +181,7 @@ const AddHistoryForm = ({ patientId, button }) => {
             </label>
           </div>
           <div className='patient-history-form__div'>
-            <input
-              className='patient-history-form__input'
-              type='text'
-              
-            />
+            <input className='patient-history-form__input' type='text' />
             <label
               className='patient-history-form__label patient-history-form__label--eye'
               htmlFor='cedula'
@@ -164,11 +191,7 @@ const AddHistoryForm = ({ patientId, button }) => {
           </div>
           <h5 className='patient-history-form__eye-title'>Vista Derecha</h5>
           <div className='patient-history-form__div'>
-            <input
-              className='patient-history-form__input'
-              type='text'
-              
-            />
+            <input className='patient-history-form__input' type='text' />
             <label
               className='patient-history-form__label patient-history-form__label--eye'
               htmlFor='cedula'
@@ -177,11 +200,7 @@ const AddHistoryForm = ({ patientId, button }) => {
             </label>
           </div>
           <div className='patient-history-form__div'>
-            <input
-              className='patient-history-form__input'
-              type='text'
-              
-            />
+            <input className='patient-history-form__input' type='text' />
             <label
               className='patient-history-form__label patient-history-form__label--eye'
               htmlFor='cedula'
@@ -190,11 +209,7 @@ const AddHistoryForm = ({ patientId, button }) => {
             </label>
           </div>
           <div className='patient-history-form__div'>
-            <input
-              className='patient-history-form__input'
-              type='text'
-              
-            />
+            <input className='patient-history-form__input' type='text' />
             <label
               className='patient-history-form__label patient-history-form__label--eye'
               htmlFor='cedula'
@@ -203,11 +218,7 @@ const AddHistoryForm = ({ patientId, button }) => {
             </label>
           </div>
           <div className='patient-history-form__div'>
-            <input
-              className='patient-history-form__input'
-              type='text'
-              
-            />
+            <input className='patient-history-form__input' type='text' />
             <label
               className='patient-history-form__label patient-history-form__label--eye'
               htmlFor='cedula'
@@ -216,11 +227,7 @@ const AddHistoryForm = ({ patientId, button }) => {
             </label>
           </div>
           <div className='patient-history-form__div'>
-            <input
-              className='patient-history-form__input'
-              type='text'
-              
-            />
+            <input className='patient-history-form__input' type='text' />
             <label
               className='patient-history-form__label patient-history-form__label--eye'
               htmlFor='cedula'
@@ -237,7 +244,6 @@ const AddHistoryForm = ({ patientId, button }) => {
             className='patient-history-form__input patient-history-form__input--diagnosis'
             /* value={prescription}
             onChange={(e) => setPrescription(e.target.value)} */
-            
           />
           <label
             className=' patient-history-form__label patient-history-form__label--diagnosis'
